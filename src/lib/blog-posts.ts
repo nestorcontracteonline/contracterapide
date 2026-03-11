@@ -292,6 +292,192 @@ Pe **ContracteRapide.ro** generezi un contract prestări servicii PFA în 5 minu
 **[Protejează-te acum →](https://contracterapide.ro)**
 `,
   },
+  {
+    slug: 'contract-agent-imobiliar-romania-2026',
+    title: 'Contract Agent Imobiliar România 2026 – Clauze Obligatorii și Model Descărcabil',
+    excerpt: 'Tot ce trebuie să știi despre contractul de agent imobiliar în 2026: comision, exclusivitate, durata mandatului și cum te protejezi juridic ca agent sau proprietar.',
+    publishedAt: '2026-03-10',
+    readingTime: 5,
+    keywords: ['contract agent imobiliar', 'contract intermediere imobiliara', 'contract agent imobiliar 2026', 'comision agent imobiliar'],
+    content: `## Ce este contractul de agent imobiliar și de ce e obligatoriu în 2026
+
+Tranzacțiile imobiliare implică sume mari și riscuri juridice semnificative. Dacă ești agent imobiliar sau lucrezi cu unul, **contractul de intermediere imobiliară** (numit și mandat imobiliar sau contract de agent imobiliar) este documentul care reglementează întreaga relație — comisionul, exclusivitatea, obligațiile ambelor părți.
+
+Fără un contract semnat, te expui la dispute privind comisionul, la situații în care proprietarul vinde direct după ce tu ai adus cumpărătorul, sau la litigii pentru servicii care "nu s-au concretizat".
+
+## Tipuri de contracte pentru agenți imobiliari
+
+### Contractul de intermediere simplu (neexclusiv)
+Proprietarul sau cumpărătorul poate lucra simultan cu mai mulți agenți. Comisionul se plătește doar agentului care finalizează tranzacția. Risc pentru agent: investești timp fără garanția că vei fi plătit.
+
+### Contractul de intermediere exclusivă
+Agentul primește dreptul exclusiv de a reprezenta proprietarul pentru o perioadă determinată. Dacă proprietarul vinde direct sau prin alt agent în această perioadă, datorează comisionul. Mai sigur pentru agent, mai restrictiv pentru proprietar.
+
+### Contractul dual (reprezentare dublă)
+Agentul reprezintă atât vânzătorul, cât și cumpărătorul în aceeași tranzacție. Necesită acordul explicit al ambelor părți și prezintă conflicte de interese inerente — reglementat strict în România.
+
+## Clauze obligatorii într-un contract agent imobiliar valid în 2026
+
+### 1. Identificarea completă a părților
+- Datele agentului/agenției: denumire, CUI, număr autorizație ANAR (Asociația Națională a Agențiilor Imobiliare), adresă
+- Datele clientului (proprietar sau cumpărător): nume, CNP/CUI, adresă
+
+### 2. Obiectul mandatului
+Descrie clar proprietatea (adresă, suprafață, nr. cadastral dacă există) și tipul tranzacției (vânzare, închiriere, cumpărare).
+
+### 3. Prețul de vânzare/închiriere agreat
+Stabilește prețul minim acceptat de proprietar sau bugetul maxim al cumpărătorului. Agentul nu poate negocia sub/deasupra acestui prag fără acordul scris al clientului.
+
+### 4. Comisionul agentului
+Clauza cea mai disputată. Specifică:
+- Procentul sau suma fixă
+- De la cine se percepe (vânzător, cumpărător sau ambii)
+- Momentul plății (la semnarea promisiunii sau la semnarea la notar)
+- Ce se întâmplă dacă tranzacția cade din vina uneia dintre părți
+
+**Uzanță 2026:** Comisionul standard variază între 2-3% din prețul de vânzare, suportat de una sau ambele părți, în funcție de negociere.
+
+### 5. Durata contractului și exclusivitatea
+Precizează:
+- Data de start și data de expirare (uzual 3-6 luni pentru vânzare)
+- Dacă mandatul este exclusiv sau neexclusiv
+- Condițiile de prelungire automată sau prin act adițional
+
+### 6. Obligațiile agentului
+- Promovarea proprietății (canale specifice: site-uri imobiliare, rețele sociale, baza de date proprie)
+- Numărul minim de vizionări sau acțiuni de marketing per lună
+- Raportare periodică către client (ex: săptămânal)
+
+### 7. Obligațiile clientului
+- Să asigure accesul agentului la proprietate pentru vizionări
+- Să informeze agentul despre orice ofertă primită direct
+- Să nu acționeze contrar exclusivității (dacă există)
+
+### 8. Clauza de protecție a comisionului
+Agentul păstrează dreptul la comision dacă tranzacția se finalizează în termen de 6-12 luni după expirarea contractului, cu un client identificat de agent în perioada mandatului. Esențial pentru a preveni "ocolitul" agentului.
+
+### 9. Rezilierea contractului
+Condițiile în care oricare parte poate ieși din contract (termen de preaviz de 15-30 de zile, compensații datorate dacă există cheltuieli dovedite).
+
+## Erori frecvente în contractele imobiliare
+
+**Comision fără moment precis de plată**: "la finalizarea tranzacției" poate fi interpretat diferit — la promisiune sau la actul final la notar?
+
+**Exclusivitate fără clauză de protecție**: proprietarul poate aștepta expirarea contractului și vinde direct cumpărătorului adus de tine.
+
+**Fără descriere exactă a proprietății**: dacă proprietarul are mai multe imobile, care anume e vizat?
+
+**Fără obligații concrete ale agentului**: "promovarea proprietății" fără detalii nu înseamnă nimic legal.
+
+## Cum generezi un contract de agent imobiliar în 5 minute
+
+Pe **ContracteRapide.ro** ai disponibil un template de contract de intermediere imobiliară conform legislației române 2026, cu toate clauzele de mai sus incluse. Completezi datele, descarci PDF-ul sau îl semnezi electronic.
+
+**[Generează contractul de agent imobiliar acum →](https://contracterapide.ro)**
+`,
+  },
+  {
+    slug: 'cesiune-drepturi-autor-freelancer',
+    title: 'Cesiune Drepturi de Autor pentru Freelanceri 2026 – Ghid Complet',
+    excerpt: 'Ești copywriter, designer, fotograf sau developer? Înțelege cum funcționează cesiunea drepturilor de autor, ce clauze sunt critice și cum te protejezi juridic în România.',
+    publishedAt: '2026-03-11',
+    readingTime: 5,
+    keywords: ['cesiune drepturi autor freelancer', 'contract cesiune drepturi autor', 'drepturi autor freelancer romania', 'transfer drepturi autor'],
+    content: `## Ce înseamnă cesiunea drepturilor de autor și de ce contează pentru freelanceri
+
+Ești copywriter, fotograf, designer grafic, ilustrator, muzician sau developer? Tot ce creezi — texte, imagini, cod, melodii, design-uri — este automat protejat de **dreptul de autor** conform Legii nr. 8/1996, din momentul creației.
+
+Problema: clientul care plătește pentru creația ta nu devine automat proprietarul ei. El primește dreptul de a o folosi **doar în limitele agreate contractual**. Fără o **cesiune de drepturi de autor** clară, poți ajunge în situații absurde: clientul folosește logo-ul tău în campanii internaționale fără să te plătească suplimentar, sau dimpotrivă — tu nu mai poți folosi acel work în portofoliu.
+
+## Drepturile de autor în România — ce trebuie să știi
+
+### Drepturi morale (inalienabile)
+Nu pot fi cedate niciodată:
+- Dreptul la paternitate (să ți se recunoască calitatea de autor)
+- Dreptul la integritate (nimeni nu poate modifica opera fără acordul tău)
+- Dreptul de retractare (poți retrage opera din circulație, cu despăgubiri)
+
+### Drepturi patrimoniale (transferabile)
+Pot fi cedate total sau parțial:
+- Dreptul de reproducere (copiere, multiplicare)
+- Dreptul de distribuție (vânzare, închiriere)
+- Dreptul de comunicare publică (afișare, difuzare online)
+- Dreptul de transformare (adaptare, traducere, modificare)
+
+## Cesiune totală vs. licență de utilizare — care e diferența
+
+### Cesiunea totală a drepturilor patrimoniale
+Transferi permanent toate drepturile patrimoniale către client. El poate folosi, modifica, vinde sau licenția creația ta fără limitări și fără să îți ceară acordul ulterior.
+
+**Când are sens:** proiecte corporate, logo-uri, campanii publicitare majore. Clientul plătește un preț mai mare tocmai pentru această exclusivitate totală.
+
+### Licența de utilizare
+Păstrezi drepturile, dar acorzi clientului dreptul de a folosi creația în condiții specifice: teritoriu, perioadă, canale, număr de utilizări. La expirarea licenței, drepturile revin la tine integral.
+
+**Când are sens:** fotografii de stock, muzică pentru video-uri, templating, orice creație pe care vrei să o poți relicenția altor clienți.
+
+## Clauze esențiale într-un contract de cesiune drepturi de autor
+
+### 1. Descrierea precisă a operei
+"Logo-ul companiei X în variantele principale și secundare, fișierele sursă în formatele AI, EPS și SVG, conform briefului din data de [data]."
+
+Cu cât e mai specific, cu atât mai puțin loc de interpretare.
+
+### 2. Drepturile cedate (sau licențiate)
+Enumeră explicit drepturile transferate:
+- "Dreptul de reproducere, distribuție și comunicare publică, inclusiv online"
+- "Dreptul de transformare și adaptare pentru orice format media"
+- Sau, dacă e cesiune totală: "toate drepturile patrimoniale de autor"
+
+### 3. Teritoriul și durata
+- **Cesiune totală**: de regulă, nelimitat teritorial și temporal
+- **Licență**: specifică țările și perioada (ex: "România și UE, pentru 3 ani")
+
+### 4. Exclusivitatea
+Clientul primește drepturi exclusive (nimeni altcineva nu poate folosi creația, inclusiv tu) sau neexclusive (poți licenția aceeași creație altor clienți)?
+
+### 5. Prețul cesiunii — separat de prețul creației
+Acesta e aspectul cel mai ignorat de freelanceri. Prețul muncii de creație (ore de lucru) este **diferit** de prețul cesiunii drepturilor. Un logo creat în 10 ore poate fi cedat cu drepturi exclusive pentru o sumă mult mai mare decât tarifarea orară.
+
+**Practică recomandată:** Contract de prestări servicii (pentru munca de creație) + Contract de cesiune drepturi de autor (pentru transfer) — sau un singur document care le combină, cu prețuri distincte pentru fiecare component.
+
+### 6. Dreptul de portafoliu
+Chiar dacă cedezi toate drepturile patrimoniale, poți include clauza: "Autorul păstrează dreptul de a prezenta opera în portofoliul personal, fără drept de reproducere comercială."
+
+### 7. Garanția de originalitate
+Declari că opera este originală, că nu încalcă drepturile terților și că ești singurul deținător al drepturilor cedate. Esențial pentru protecția clientului.
+
+### 8. Consecințele nerespectării
+Ce se întâmplă dacă clientul folosește opera dincolo de termenii agreați? Penalități, reziliere, acțiune în instanță?
+
+## Situații frecvente și cum le rezolvi contractual
+
+**Fotograful care nu știe că JPEG-ul e licențiat pe 1 an**
+Clientul folosește fotografiile 3 ani. Fără contract care să specifice durata licenței și prețul de reînnoire, nu poți solicita nimic suplimentar.
+
+**Designerul al cărui logo ajunge pe produse în 10 țări**
+Ai cedat drepturile "pentru România". Clientul a extins business-ul internațional. Fără o clauză de teritoriu clar definită și un mecanism de renegociere, pierzi controlul.
+
+**Copywriterul care descoperă că textele lui sunt folosite de o altă companie din grup**
+Cesiunea a fost agreată "pentru compania X". Grupul a refolosit textele pentru filialele din alte țări. Fără o clauză care să specifice că cesiunea e personală și netransferabilă, ești blocat.
+
+## Tariful pentru cesiunea drepturilor — cum îl calculezi
+
+Nu există o formulă universală, dar iată câteva principii:
+
+- **Utilizare limitată** (ex: 1 an, 1 țară, 1 canal): 10-30% din prețul creației
+- **Utilizare extinsă** (ex: 3 ani, Europa, toate canalele): 50-100% din prețul creației
+- **Cesiune totală** (permanent, global, exclusiv): 100-300% din prețul creației sau mai mult, în funcție de potențialul comercial
+
+Un logo pentru un startup mic ≠ un logo pentru o companie cotată la bursă. Negocierea cesiunii drepturilor reflectă valoarea potențială a utilizării, nu doar munca depusă.
+
+## Generează un contract de cesiune drepturi de autor în 5 minute
+
+Pe **ContracteRapide.ro** ai disponibil un template de contract de cesiune drepturi de autor conform Legii 8/1996, actualizat pentru 2026, cu toate clauzele de mai sus. Completezi datele, specifici ce drepturi cedezi și în ce condiții, descarci PDF-ul sau îl semnezi electronic.
+
+**[Generează contractul de cesiune acum →](https://contracterapide.ro)**
+`,
+  },
 ]
 
 export function getBlogPost(slug: string): BlogPost | undefined {
