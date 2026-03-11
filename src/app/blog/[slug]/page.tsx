@@ -2,6 +2,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { BLOG_POSTS, getBlogPost } from "@/lib/blog-posts"
 import { Metadata } from "next"
+import Breadcrumbs from "@/components/Breadcrumbs"
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -98,13 +99,10 @@ export default async function BlogPostPage({ params }: Props) {
 
       <main className="max-w-2xl mx-auto px-4 py-12">
         {/* Breadcrumb */}
-        <nav className="text-sm text-gray-400 mb-8">
-          <Link href="/" className="hover:text-gray-600">Acasă</Link>
-          <span className="mx-2">/</span>
-          <Link href="/blog" className="hover:text-gray-600">Blog</Link>
-          <span className="mx-2">/</span>
-          <span className="text-gray-600">{post.title.substring(0, 40)}...</span>
-        </nav>
+        <Breadcrumbs items={[
+          { label: 'Blog', href: '/blog' },
+          { label: post.title.length > 50 ? post.title.substring(0, 50) + '…' : post.title },
+        ]} />
 
         <article>
           <div className="flex items-center gap-3 text-sm text-gray-400 mb-4">

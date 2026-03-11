@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { getContractById, ContractType, generateContractText } from '@/lib/contracts'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 export default function GeneratePage() {
   const params = useParams()
@@ -70,6 +71,26 @@ export default function GeneratePage() {
       setError('Eroare de conexiune. Încearcă din nou.')
     } finally {
       setLoading(false)
+    }
+  }
+
+  const handleDownloadDocx = async () => {
+    try {
+      const res = await fetch('/api/contract/docx', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contractId: contract?.id, formData, contractNumber }),
+      })
+      if (!res.ok) throw new Error('Failed')
+      const blob = await res.blob()
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      a.download = `${contract?.id}-${contractNumber}.docx`
+      a.click()
+      URL.revokeObjectURL(url)
+    } catch {
+      alert('Eroare la descărcare. Încearcă din nou.')
     }
   }
 
@@ -453,8 +474,11 @@ export default function GeneratePage() {
             </div>
 
             <div className="space-y-3 pb-6">
-              <button onClick={handlePrint} className="w-full bg-gray-900 text-white py-3.5 rounded-xl font-semibold hover:bg-gray-800 transition-colors">
-                Salveaza / Printeaza PDF
+              <button onClick={handleDownloadDocx} className="w-full bg-blue-600 text-white py-3.5 rounded-xl font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+                <span>⬇</span> Descarcă .docx (Word)
+              </button>
+              <button onClick={handlePrint} className="w-full border border-gray-200 text-gray-600 py-3 rounded-xl font-medium hover:border-gray-300 transition-colors text-sm">
+                Salvează ca PDF
               </button>
               <Link href="/" className="block w-full border border-gray-200 text-gray-700 py-3 rounded-xl font-medium hover:border-gray-300 transition-colors text-center text-sm">
                 Genereaza alt contract

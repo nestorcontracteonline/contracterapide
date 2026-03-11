@@ -35,6 +35,9 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'moneda', label: 'Moneda', type: 'select', required: true, options: ['RON', 'EUR', 'USD'] },
       { id: 'termen_livrare', label: 'Termen de livrare', type: 'date', required: true },
       { id: 'termen_plata', label: 'Termen de plată (zile)', type: 'number', required: true, placeholder: 'Ex: 30' },
+      { id: 'acceptare_livrabil_zile', label: 'Termen acceptare livrabil (zile)', type: 'number', required: false, placeholder: 'Ex: 5' },
+      { id: 'penalitate_intarziere_plata', label: 'Penalitate întârziere plată (%/zi)', type: 'number', required: false, placeholder: 'Ex: 0.5' },
+      { id: 'limitare_raspundere', label: 'Limitarea răspunderii', type: 'select', required: false, options: ['Limitată la valoarea contractului', 'Limitată la 2x valoarea contractului', 'Nelimitată'] },
     ]
   },
   {
@@ -148,6 +151,11 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'data_inceput', label: 'Data de început', type: 'date', required: true },
       { id: 'durata', label: 'Durata contractului', type: 'select', required: true, options: ['1 an', '2 ani', '3 ani', '5 ani', 'Nedeterminată'] },
       { id: 'garantie', label: 'Garanție (luni de chirie)', type: 'number', required: false, placeholder: 'Ex: 2' },
+      { id: 'garantie_inventar', label: 'Inventar spațiu', type: 'select', required: false, options: ['Da, se atașează inventar semnat', 'Nu'] },
+      { id: 'indexare_chirie', label: 'Indexare chirie', type: 'select', required: false, options: ['Fără indexare', 'Indexare anuală la inflație (IPC)', 'La acordul ambelor părți'] },
+      { id: 'reziliere_preaviz_zile', label: 'Preaviz reziliere (zile)', type: 'number', required: false, placeholder: 'Ex: 30' },
+      { id: 'titlu_executoriu', label: 'Titlu executoriu', type: 'select', required: false, options: ['Da, contractul constituie titlu executoriu (necesită autentificare notarială)', 'Nu'] },
+      { id: 'reparatii_minore_pana_la', label: 'Reparații minore în sarcina chiriașului (RON)', type: 'number', required: false, placeholder: 'Ex: 200' },
     ]
   },
   {
@@ -283,6 +291,10 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'impartire_venituri', label: 'Împărțirea veniturilor', type: 'text', required: true, placeholder: 'Ex: 50/50 sau 60% P1 / 40% P2' },
       { id: 'data_start', label: 'Data de start', type: 'date', required: true },
       { id: 'data_sfarsit', label: 'Data de finalizare estimată', type: 'date', required: false },
+      { id: 'distribuire_profit', label: 'Distribuire profit (detalii)', type: 'text', required: false, placeholder: 'Ex: 50/50, sau proporțional cu contribuțiile' },
+      { id: 'non_compete_durata', label: 'Clauza de non-compete', type: 'select', required: false, options: ['Fără non-compete', '6 luni', '1 an', '2 ani'] },
+      { id: 'mecanism_exit', label: 'Mecanismul de ieșire din parteneriat', type: 'textarea', required: false, placeholder: 'Ex: Partenerul care iese cedează drepturile, celălalt plătește valoarea contribuției evaluate...' },
+      { id: 'deadlock_rezolvare', label: 'Rezolvare blocaj decizional (deadlock)', type: 'select', required: false, options: ['Mediator agreat', 'Unul dintre parteneri are drept de veto final', 'Lichidare parteneriat'] },
     ]
   },
   {
@@ -331,6 +343,10 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'tarif_extra', label: 'Tariful pentru ore suplimentare (RON/oră)', type: 'number', required: false, placeholder: 'Ex: 150' },
       { id: 'data_start', label: 'Data de start', type: 'date', required: true },
       { id: 'durata', label: 'Durata contractului', type: 'select', required: true, options: ['3 luni', '6 luni', '12 luni', 'Nedeterminată'] },
+      { id: 'sla_raspuns_ore', label: 'Timp răspuns incident critic (ore)', type: 'number', required: false, placeholder: 'Ex: 4' },
+      { id: 'sla_rezolvare_ore', label: 'Timp rezolvare incident critic (ore)', type: 'number', required: false, placeholder: 'Ex: 24' },
+      { id: 'proprietate_cod', label: 'Proprietatea codului sursă', type: 'select', required: false, options: ['Codul aparține clientului', 'Codul aparține prestatorului', 'Cod partajat - licență reciprocă'] },
+      { id: 'backup_frecventa', label: 'Frecvența backup', type: 'select', required: false, options: ['Zilnic', 'Săptămânal', 'Lunar', 'Nu e inclus'] },
     ]
   },
   {
@@ -425,6 +441,11 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'teritoriu', label: 'Teritoriul', type: 'select' as const, required: true, options: ['Teritoriul României', 'Uniunea Europeană', 'Mondial'] },
       { id: 'durata', label: 'Durata cesiunii', type: 'select' as const, required: true, options: ['1 an', '3 ani', '5 ani', '10 ani', 'Toată durata drepturilor de autor (70 ani de la creație)'] },
       { id: 'pret_cesiune', label: 'Prețul cesiunii (RON)', type: 'number' as const, required: true },
+      { id: 'teritoriu_cesiune', label: 'Teritoriul cesiunii', type: 'select' as const, required: false, options: ['România', 'Uniunea Europeană', 'Mondial'] },
+      { id: 'durata_cesiune', label: 'Durata cesiunii', type: 'select' as const, required: false, options: ['1 an', '3 ani', '5 ani', 'Nelimitată (pe durata protecției legale)'] },
+      { id: 'opere_viitoare', label: 'Opere viitoare', type: 'select' as const, required: false, options: ['Nu (doar opera specificată)', 'Da, cu act adițional separat per operă'] },
+      { id: 'drept_modificare', label: 'Dreptul de modificare/adaptare', type: 'select' as const, required: false, options: ['Da, poate modifica/adapta opera', 'Nu, opera se folosește ca atare'] },
+      { id: 'atribuire_autor', label: 'Atribuire autor', type: 'select' as const, required: false, options: ['Da, autorul este menționat public', 'Nu, utilizare anonimă'] },
     ]
   },
 ]
@@ -481,19 +502,25 @@ a) Să achite contravaloarea serviciilor la termenele stabilite;
 b) Să pună la dispoziția Prestatorului informațiile necesare;
 c) Să colaboreze cu Prestatorul pentru buna desfășurare a contractului.
 
-VIII. RĂSPUNDEREA CONTRACTUALĂ
+VIII. ACCEPTAREA LIVRABILELOR
 
-Nerespectarea obligațiilor de plată atrage penalități de 0,1% pe zi de întârziere din suma datorată.
+Beneficiarul are ${data.acceptare_livrabil_zile || '5'} zile de la livrare să accepte sau să respingă motivat livrabilul. Lipsa oricărui răspuns în termenul menționat constituie acceptare tacită.
 
-IX. FORȚA MAJORĂ
+IX. RĂSPUNDEREA CONTRACTUALĂ
+
+Nerespectarea obligațiilor de plată atrage penalități de ${data.penalitate_intarziere_plata || '0,1'}% pe zi de întârziere din suma datorată, aplicabile de ambele părți (inclusiv pentru plata cu întârziere a penalităților de către Prestator, dacă este cazul).
+
+Limitarea răspunderii: ${data.limitare_raspundere || 'Limitată la valoarea contractului'}. Niciuna dintre părți nu răspunde pentru daune indirecte sau pierderi de profit.
+
+X. FORȚA MAJORĂ
 
 Niciuna dintre părți nu răspunde pentru neexecutarea obligațiilor cauzată de forță majoră, conform legii.
 
-X. LITIGII
+XI. LITIGII
 
 Litigiile se rezolvă pe cale amiabilă sau, dacă nu este posibil, prin instanțele judecătorești competente din România.
 
-XI. DISPOZIȚII FINALE
+XII. DISPOZIȚII FINALE
 
 Prezentul contract a fost încheiat în 2 (două) exemplare originale, câte unul pentru fiecare parte.
 
@@ -845,17 +872,23 @@ d) Să predea spațiul în starea în care l-a primit.
 
 VII. INDEXAREA CHIRIEI
 
-Chiria se poate indexa anual cu indicele inflației comunicat de INS.
+${data.indexare_chirie === 'Fără indexare' ? 'Chiria rămâne fixă pe durata contractului, fără indexare.' : data.indexare_chirie === 'Indexare anuală la inflație (IPC)' ? 'Chiria se indexează anual cu indicele prețurilor de consum (IPC) comunicat de INS.' : 'Chiria poate fi indexată la acordul ambelor părți, prin act adițional semnat.'}
 
-VIII. REZILIEREA CONTRACTULUI
+${data.garantie_inventar === 'Da, se atașează inventar semnat' ? 'VIII. INVENTAR\n\nSe atașează prezentului contract un inventar al bunurilor mobile existente în spațiu, semnat de ambele părți. Chiriașul preia spațiul cu bunurile menționate și le va restitui în aceeași stare (uzura normală exclusă).\n\nIX.' : 'VIII.'}REPARAȚII
 
-Contractul poate fi reziliat cu 30 zile preaviz scris. Neachitarea chiriei pe 2 luni consecutive dă dreptul locatorului la reziliere imediată.
+${data.reparatii_minore_pana_la ? `Reparațiile minore (până la ${data.reparatii_minore_pana_la} RON/intervenție) sunt în sarcina chiriașului. Reparațiile majore rămân în sarcina locatorului.` : 'Reparațiile minore de întreținere curentă sunt în sarcina chiriașului. Reparațiile majore rămân în sarcina locatorului.'}
 
-IX. LITIGII
+${data.garantie_inventar === 'Da, se atașează inventar semnat' ? 'X.' : 'IX.'}REZILIEREA CONTRACTULUI
+
+Contractul poate fi reziliat cu ${data.reziliere_preaviz_zile || '30'} zile preaviz scris. Neachitarea chiriei pe 2 luni consecutive dă dreptul locatorului la reziliere imediată.
+
+${data.titlu_executoriu?.startsWith('Da') ? `${data.garantie_inventar === 'Da, se atașează inventar semnat' ? 'XI.' : 'X.'}TITLU EXECUTORIU\n\nPrezentul contract, autentificat notarial, constituie titlu executoriu în privința obligației de plată a chiriei și a obligației de restituire a spațiului la expirarea/rezilierea contractului, conform art. 1798 Cod Civil.` : ''}
+
+LITIGII
 
 Litigiile se soluționează de instanțele competente de la locul situării imobilului.
 
-X. DISPOZIȚII FINALE
+DISPOZIȚII FINALE
 
 Prezentul contract a fost încheiat în 2 exemplare originale.
 
@@ -1127,11 +1160,11 @@ Cesiunea este: ${data.tip_cesiune}
 
 V. TERITORIUL
 
-Cesiunea acoperă: ${data.teritoriu}
+Cesiunea acoperă: ${data.teritoriu_cesiune || data.teritoriu}
 
 VI. DURATA
 
-Cesiunea este acordată pentru: ${data.durata}
+Cesiunea este acordată pentru: ${data.durata_cesiune || data.durata}
 
 VII. PREȚUL CESIUNII
 
@@ -1139,19 +1172,28 @@ Prețul convenit pentru cesiunea drepturilor: ${data.pret_cesiune} RON
 
 Plata se efectuează la semnarea prezentului contract/în termen de 30 zile de la predarea operei.
 
-VIII. DREPTURILE MORALE
+VIII. DREPTURILE MORALE ȘI ATRIBUIRE
 
-Cedentul își rezervă drepturile morale de autor (dreptul la paternitate și integritate), în conformitate cu art. 10 din Legea 8/1996. Cesionarul va menționa numele Cedentului în calitate de autor, dacă natura utilizării permite acest lucru.
+Cedentul își rezervă drepturile morale de autor (dreptul la paternitate și integritate), în conformitate cu art. 10 din Legea 8/1996.
+Atribuire publică autor: ${data.atribuire_autor || 'Da, autorul este menționat public'}
 
-IX. GARANȚII
+IX. DREPTUL DE MODIFICARE
+
+${data.drept_modificare || 'Da, poate modifica/adapta opera'}. Orice modificare substanțială care afectează integritatea operei va respecta dreptul moral al autorului.
+
+X. OPERE VIITOARE
+
+${data.opere_viitoare || 'Nu (doar opera specificată)'}.
+
+XI. GARANȚII
 
 Cedentul garantează că este unicul autor al operei, că opera nu încalcă drepturile terților și că nu a mai cedat aceleași drepturi unor terți.
 
-X. LITIGII
+XII. LITIGII
 
 Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente.
 
-XI. DISPOZIȚII FINALE
+XIII. DISPOZIȚII FINALE
 
 Prezentul contract a fost încheiat în 2 exemplare originale.
 
@@ -1275,10 +1317,11 @@ Părțile convin să colaboreze pentru: ${data.scop_parteneriat}.
 - Partener 2: ${data.contributie_p2}
 
 3. ÎMPĂRȚIREA VENITURILOR/PROFITURILOR
-${data.impartire_venituri || '50% Partener 1 / 50% Partener 2'}.
+${data.distribuire_profit || data.impartire_venituri || '50% Partener 1 / 50% Partener 2'}.
 
 4. LUAREA DECIZIILOR
 Deciziile importante se iau cu acordul ambilor parteneri. Deciziile operaționale curente pot fi luate individual în limita competențelor agreate.
+${data.deadlock_rezolvare ? `\nÎn caz de blocaj decizional (deadlock): ${data.deadlock_rezolvare}.` : ''}
 
 5. DURATA
 Prezentul acord este valabil de la ${data.data_start} până la ${data.data_sfarsit || 'data convenită de comun acord pentru finalizarea proiectului'}.
@@ -1286,13 +1329,19 @@ Prezentul acord este valabil de la ${data.data_start} până la ${data.data_sfar
 6. CONFIDENȚIALITATE
 Ambii parteneri se obligă să păstreze confidențialitatea informațiilor schimbate în cadrul acestui parteneriat.
 
-7. ÎNCETAREA ACORDULUI
+7. CLAUZA DE NON-COMPETE
+${data.non_compete_durata === 'Fără non-compete' || !data.non_compete_durata ? 'Părțile nu au convenit o clauză de non-compete.' : `Pe o perioadă de ${data.non_compete_durata} de la încetarea prezentului acord, niciuna dintre părți nu va desfășura activități concurente directe în același domeniu și pe aceeași piață.`}
+
+8. MECANISMUL DE IEȘIRE DIN PARTENERIAT
+${data.mecanism_exit || 'Partenerul care dorește să se retragă va notifica cu 30 de zile preaviz. Drepturile și obligațiile vor fi evaluate și negociate la valoarea de piață de un evaluator agreat de ambele părți. Dacă nu se ajunge la un acord, se va recurge la medierea unui terț neutral.'}
+
+9. ÎNCETAREA ACORDULUI
 Acordul poate înceta prin:
 - Acordul scris al ambelor părți
 - Finalizarea proiectului/scopului parteneriatului
 - Notificare cu 30 de zile preaviz
 
-8. LITIGII
+10. LITIGII
 Eventualele dispute vor fi rezolvate pe cale amiabilă. În caz de eșec, competența revine instanțelor judecătorești.
 
 PARTENER 1                                   PARTENER 2
@@ -1395,8 +1444,12 @@ ${data.servicii_incluse}
 III. NIVELUL DE SERVICIU (SLA)
 
 Timp de răspuns garantat: ${data.timp_raspuns}
+${data.sla_raspuns_ore ? `Timp de răspuns incident critic: ${data.sla_raspuns_ore} ore` : ''}
+${data.sla_rezolvare_ore ? `Timp de rezolvare incident critic: ${data.sla_rezolvare_ore} ore` : ''}
 ${data.ore_incluse ? `Ore de intervenție incluse lunar: ${data.ore_incluse} ore` : ''}
 ${data.tarif_extra ? `Tarif ore suplimentare: ${data.tarif_extra} RON/oră` : ''}
+${data.backup_frecventa ? `Frecvența backup: ${data.backup_frecventa}` : ''}
+${data.proprietate_cod ? `Proprietatea codului sursă: ${data.proprietate_cod}` : ''}
 
 IV. TARIFUL LUNAR
 

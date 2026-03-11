@@ -143,7 +143,7 @@ export async function POST(req: NextRequest) {
                   <p style="margin:0 0 10px;font-size:14px;font-weight:600;color:#1e40af;">Pașii următori:</p>
                   <p style="margin:0;font-size:14px;color:#1d4ed8;line-height:1.8;">
                     1. Deschide contractul din dashboard<br>
-                    2. Copiază textul în Word sau Google Docs<br>
+                    2. Deschide dashboard și descarcă .docx direct<br>
                     3. Adaugă semnăturile (olograf sau electronic)<br>
                     4. Trimite clientului câte un exemplar
                   </p>
