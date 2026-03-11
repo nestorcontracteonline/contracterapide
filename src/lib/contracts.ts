@@ -74,6 +74,8 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'pret_estimat', label: 'Prețul estimat (EUR)', type: 'number', required: false },
       { id: 'comision', label: 'Comisionul agenției (%)', type: 'number', required: true, placeholder: 'Ex: 3' },
       { id: 'durata_mandat', label: 'Durata mandatului (luni)', type: 'number', required: true, placeholder: 'Ex: 3' },
+      { id: 'exclusivitate', label: 'Exclusivitate agenție', type: 'select', required: true, options: ['Fără exclusivitate (clientul poate colabora cu mai multe agenții)', 'Cu exclusivitate (clientul colaborează exclusiv cu această agenție)'] },
+      { id: 'comision_tranzactie_directa', label: 'Comision tranzacție directă (%)', type: 'number', required: false, placeholder: 'Comision dacă clientul tranzacționează direct (Ex: 1.5)' },
     ]
   },
   {
@@ -663,7 +665,11 @@ c) Să informeze agenția imediat despre orice tranzacție directă cu vânzăto
 
 VII. EXCLUSIVITATE
 
-Prezentul contract ${data.tip_tranzactie === 'Vânzare' ? 'nu' : 'nu'} conferă exclusivitate agenției.
+${data.exclusivitate?.includes('Cu exclusivitate')
+  ? `Prezentul contract conferă exclusivitate agenției pe durata mandatului. Clientul se obligă să colaboreze exclusiv cu această agenție și să nu încheie tranzacția prin intermediul altei agenții sau în mod direct cu persoane prezentate de agenție.
+${data.comision_tranzactie_directa ? `În cazul tranzacționării directe cu persoane prezentate de agenție, clientul datorează un comision de ${data.comision_tranzactie_directa}% din valoarea tranzacției.` : ''}`
+  : `Prezentul contract nu conferă exclusivitate agenției. Clientul are dreptul să colaboreze simultan cu mai multe agenții imobiliare. Comisionul este datorat exclusiv agenției care a intermediat efectiv tranzacția.`
+}
 
 VIII. LITIGII
 
