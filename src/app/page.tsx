@@ -249,6 +249,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Compare Section */}
+      <section className="px-4 py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">ContracteRapide vs. Avocat tradițional</h2>
+          <p className="text-gray-500 text-center mb-10">Pentru contracte standard de prestări servicii, colaborare sau NDA — nu ai nevoie de avocat.</p>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr>
+                  <th className="text-left py-3 px-4 font-semibold text-gray-500 w-1/3"></th>
+                  <th className="py-3 px-4 text-center">
+                    <div className="inline-block bg-blue-600 text-white px-4 py-1.5 rounded-lg font-semibold text-sm">ContracteRapide</div>
+                  </th>
+                  <th className="py-3 px-4 text-center text-gray-500 font-semibold">Avocat tradițional</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['Preț per contract', '15 RON', '300–800 RON'],
+                  ['Timp de obținere', '5 minute', '1–5 zile lucrătoare'],
+                  ['Disponibil', '24/7, oricând', 'Program de lucru'],
+                  ['Conform legislației RO', '✓ Da', '✓ Da'],
+                  ['Editabil după livrare', '✓ .docx editabil', '✓ Da'],
+                  ['Consultanță pentru speță complexă', '✗ Nu', '✓ Da'],
+                  ['Reprezentare în instanță', '✗ Nu', '✓ Da'],
+                ].map(([feature, cr, av], i) => (
+                  <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
+                    <td className="py-3 px-4 text-gray-700 font-medium">{feature}</td>
+                    <td className="py-3 px-4 text-center">
+                      <span className={cr.startsWith('✓') ? 'text-green-600 font-semibold' : cr.startsWith('✗') ? 'text-gray-400' : 'text-blue-600 font-bold'}>{cr}</span>
+                    </td>
+                    <td className="py-3 px-4 text-center text-gray-500">{av}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-center text-xs text-gray-400 mt-6">
+            💡 Recomandare: folosește ContracteRapide pentru contracte standard. Apelează la un avocat pentru situații complexe, litigii sau acte notariale.
+          </p>
+        </div>
+      </section>
+
       {/* Pricing */}
       <section id="preturi" className="px-4 py-16">
         <div className="max-w-3xl mx-auto text-center">
