@@ -256,6 +256,12 @@ export default function GeneratePage() {
       </header>
 
       <div className="max-w-2xl mx-auto px-4 py-6">
+        {/* Breadcrumbs */}
+        <Breadcrumbs items={[
+          { label: 'Contracte', href: '/contracte' },
+          { label: contract.name },
+        ]} />
+
         {/* Progress bar */}
         {step !== 'done' && (
           <div className="flex items-center mb-8">
