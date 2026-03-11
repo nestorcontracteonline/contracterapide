@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CONTRACT_TYPES } from "@/lib/contracts";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export default function Home() {
   const freelancerContracts = CONTRACT_TYPES.filter(c => c.category === 'freelancer');
@@ -208,6 +209,26 @@ export default function Home() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Newsletter Capture */}
+      <section className="px-4 py-16 bg-blue-600">
+        <div className="max-w-2xl mx-auto text-center">
+          <div className="text-3xl mb-4">📄</div>
+          <h2 className="text-2xl font-bold text-white mb-3">
+            Primește un model de contract gratuit
+          </h2>
+          <p className="text-blue-100 mb-8 text-sm">
+            Lasă email-ul și îți trimitem un model de Contract de Prestări Servicii — fără nicio plată.
+            Fără spam. Dezabonare oricând.
+          </p>
+          <div className="relative">
+            <NewsletterForm />
+          </div>
+          <p className="text-blue-200 text-xs mt-10">
+            Peste 500 de PFA-uri și freelanceri deja abonați
+          </p>
         </div>
       </section>
 
