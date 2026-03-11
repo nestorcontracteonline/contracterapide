@@ -309,6 +309,105 @@ export const CONTRACT_TYPES: ContractType[] = [
     ]
   },
   {
+    id: 'contract-mentenanta-it',
+    name: 'Contract Mentenanță IT',
+    description: 'Contract pentru mentenanța lunară a site-urilor, aplicațiilor și infrastructurii IT',
+    category: 'freelancer',
+    price: 15,
+    fields: [
+      { id: 'prestator_nume', label: 'Prestatorul (firma/PFA ta)', type: 'text', required: true, placeholder: 'Ex: IT Solutions PFA' },
+      { id: 'prestator_cui', label: 'CUI/CNP prestator', type: 'text', required: true },
+      { id: 'prestator_adresa', label: 'Adresa prestatorului', type: 'textarea', required: true },
+      { id: 'client_nume', label: 'Clientul (beneficiarul)', type: 'text', required: true },
+      { id: 'client_cui', label: 'CUI/CNP client', type: 'text', required: true },
+      { id: 'client_adresa', label: 'Adresa clientului', type: 'textarea', required: true },
+      { id: 'sisteme_mentinute', label: 'Sistemele/aplicațiile supuse mentenanței', type: 'textarea', required: true, placeholder: 'Ex: Site WordPress happy-nest.ro, server VPS Hetzner, aplicație CRM intern' },
+      { id: 'servicii_incluse', label: 'Servicii incluse în mentenanță', type: 'textarea', required: true, placeholder: 'Ex: update-uri WordPress, backup zilnic, monitorizare uptime, remediere bug-uri' },
+      { id: 'timp_raspuns', label: 'Timp de răspuns garantat', type: 'select', required: true, options: ['2 ore (urgente)', '4 ore (urgente)', '24 ore (normale)', '48 ore (normale)', 'Best effort'] },
+      { id: 'tarif_lunar', label: 'Tariful lunar de mentenanță (RON)', type: 'number', required: true, placeholder: 'Ex: 500' },
+      { id: 'ore_incluse', label: 'Ore incluse/lună', type: 'number', required: false, placeholder: 'Ex: 5' },
+      { id: 'tarif_extra', label: 'Tariful pentru ore suplimentare (RON/oră)', type: 'number', required: false, placeholder: 'Ex: 150' },
+      { id: 'data_start', label: 'Data de start', type: 'date', required: true },
+      { id: 'durata', label: 'Durata contractului', type: 'select', required: true, options: ['3 luni', '6 luni', '12 luni', 'Nedeterminată'] },
+    ]
+  },
+  {
+    id: 'contract-evenimente',
+    name: 'Contract Organizare Evenimente',
+    description: 'Contract pentru organizarea de evenimente (corporate, petreceri, conferințe, nunți)',
+    category: 'general',
+    price: 15,
+    fields: [
+      { id: 'organizator_nume', label: 'Organizatorul (firma/PFA)', type: 'text', required: true, placeholder: 'Ex: Event Pro SRL' },
+      { id: 'organizator_cui', label: 'CUI organizator', type: 'text', required: true },
+      { id: 'organizator_adresa', label: 'Adresa organizatorului', type: 'textarea', required: true },
+      { id: 'client_nume', label: 'Clientul (beneficiarul evenimentului)', type: 'text', required: true },
+      { id: 'client_cnp', label: 'CNP/CUI client', type: 'text', required: true },
+      { id: 'client_telefon', label: 'Telefon contact client', type: 'phone', required: true },
+      { id: 'tip_eveniment', label: 'Tipul evenimentului', type: 'select', required: true, options: ['Petrecere privată', 'Eveniment corporate', 'Conferință/Seminar', 'Nuntă', 'Botez', 'Aniversare', 'Team Building', 'Alt eveniment'] },
+      { id: 'descriere_eveniment', label: 'Descrierea evenimentului și serviciilor incluse', type: 'textarea', required: true, placeholder: 'Ex: Organizare petrecere copii 5-7 ani, 30 invitați, decor tematic Frozen, animatori 3h' },
+      { id: 'data_eveniment', label: 'Data evenimentului', type: 'date', required: true },
+      { id: 'ora_inceput', label: 'Ora de începere', type: 'text', required: true, placeholder: 'Ex: 15:00' },
+      { id: 'durata_ore', label: 'Durata (ore)', type: 'number', required: true, placeholder: 'Ex: 3' },
+      { id: 'locatie', label: 'Locația evenimentului', type: 'text', required: true, placeholder: 'Ex: Happy Nest, str. X nr. Y, Cluj-Napoca' },
+      { id: 'nr_persoane', label: 'Numărul de participanți', type: 'number', required: true, placeholder: 'Ex: 30' },
+      { id: 'pret_total', label: 'Prețul total (RON)', type: 'number', required: true },
+      { id: 'avans', label: 'Avans la rezervare (RON)', type: 'number', required: true, placeholder: 'Ex: 500' },
+      { id: 'termen_plata_rest', label: 'Termenul plății restului', type: 'select', required: true, options: ['La data evenimentului', 'Cu 7 zile înainte', 'Cu 3 zile înainte', 'Cu 24 ore înainte'] },
+    ]
+  },
+  {
+    id: 'contract-fotograf',
+    name: 'Contract Servicii Fotografie',
+    description: 'Contract pentru servicii foto/video la evenimente, sesiuni foto, proiecte comerciale',
+    category: 'freelancer',
+    price: 15,
+    fields: [
+      { id: 'fotograf_nume', label: 'Fotograful/Videograful', type: 'text', required: true, placeholder: 'Ex: Andrei Pop Foto PFA' },
+      { id: 'fotograf_cui', label: 'CUI/CNP fotograf', type: 'text', required: true },
+      { id: 'fotograf_adresa', label: 'Adresa fotografului', type: 'textarea', required: true },
+      { id: 'client_nume', label: 'Clientul', type: 'text', required: true },
+      { id: 'client_cnp', label: 'CNP/CUI client', type: 'text', required: true },
+      { id: 'client_telefon', label: 'Telefon client', type: 'phone', required: true },
+      { id: 'tip_sesiune', label: 'Tipul sesiunii/evenimentului', type: 'select', required: true, options: ['Nuntă', 'Botez', 'Aniversare/Petrecere', 'Sesiune foto portret', 'Sesiune foto produs/comercial', 'Eveniment corporate', 'Maternitate/Familie', 'Alt tip'] },
+      { id: 'data_sesiune', label: 'Data sesiunii', type: 'date', required: true },
+      { id: 'ora_inceput', label: 'Ora de start', type: 'text', required: true, placeholder: 'Ex: 14:00' },
+      { id: 'durata_ore', label: 'Durata (ore)', type: 'number', required: true, placeholder: 'Ex: 4' },
+      { id: 'locatie', label: 'Locația sesiunii', type: 'text', required: true },
+      { id: 'servicii_incluse', label: 'Servicii incluse', type: 'textarea', required: true, placeholder: 'Ex: Fotografiere 4h, editare 100 foto livrate în 2 săptămâni, galerie online privată' },
+      { id: 'nr_foto_livrate', label: 'Număr fotografii livrate (minim)', type: 'number', required: false, placeholder: 'Ex: 100' },
+      { id: 'termen_livrare_zile', label: 'Termenul de livrare (zile de la sesiune)', type: 'number', required: true, placeholder: 'Ex: 14' },
+      { id: 'format_livrare', label: 'Formatul de livrare', type: 'select', required: true, options: ['JPEG editare profesională', 'RAW + JPEG', 'Galerie online', 'USB + galerie online', 'Album foto tipărit'] },
+      { id: 'pret', label: 'Prețul total (RON)', type: 'number', required: true },
+      { id: 'avans', label: 'Avans la semnare (RON)', type: 'number', required: true, placeholder: 'Ex: 300' },
+      { id: 'drepturi_publicare', label: 'Fotograful poate publica imaginile în portofoliu?', type: 'select', required: true, options: ['Da, cu acordul clientului', 'Da, fără restricții', 'Nu, utilizare exclusivă client'] },
+    ]
+  },
+  {
+    id: 'contract-traducator',
+    name: 'Contract Servicii Traducere',
+    description: 'Contract pentru traduceri autorizate sau neautorizate, interpretariat, localizare',
+    category: 'freelancer',
+    price: 15,
+    fields: [
+      { id: 'traducator_nume', label: 'Traducătorul/Firma de traduceri', type: 'text', required: true, placeholder: 'Ex: Maria Ionescu Traduceri PFA' },
+      { id: 'traducator_cui', label: 'CUI/CNP traducător', type: 'text', required: true },
+      { id: 'traducator_adresa', label: 'Adresa traducătorului', type: 'textarea', required: true },
+      { id: 'client_nume', label: 'Clientul (beneficiarul)', type: 'text', required: true },
+      { id: 'client_cui', label: 'CUI/CNP client', type: 'text', required: true },
+      { id: 'client_adresa', label: 'Adresa clientului', type: 'textarea', required: true },
+      { id: 'tip_serviciu', label: 'Tipul serviciului', type: 'select', required: true, options: ['Traducere simplă', 'Traducere autorizată (legalizată)', 'Interpretariat simultan', 'Interpretariat consecutiv', 'Localizare software/website', 'Transcriere audio/video'] },
+      { id: 'limba_sursa', label: 'Limba sursă (din care se traduce)', type: 'text', required: true, placeholder: 'Ex: Română' },
+      { id: 'limba_tinta', label: 'Limba țintă (în care se traduce)', type: 'text', required: true, placeholder: 'Ex: Engleză' },
+      { id: 'descriere_document', label: 'Descrierea documentului/materialului de tradus', type: 'textarea', required: true, placeholder: 'Ex: Contract comercial 12 pagini, 3.500 cuvinte; Certificate de naștere (3 buc)' },
+      { id: 'nr_pagini_cuvinte', label: 'Volum (pagini sau cuvinte)', type: 'text', required: false, placeholder: 'Ex: 12 pagini / 3.500 cuvinte' },
+      { id: 'termen_livrare', label: 'Termenul de livrare', type: 'date', required: true },
+      { id: 'format_livrare', label: 'Formatul de livrare', type: 'select', required: true, options: ['Document Word/PDF electronic', 'Document tipărit', 'Document tipărit + electronic', 'Traducere autorizată cu ștampilă'] },
+      { id: 'pret', label: 'Prețul total (RON)', type: 'number', required: true },
+      { id: 'modalitate_plata', label: 'Modalitatea de plată', type: 'select', required: true, options: ['Integral la livrare', 'Avans 50% + rest la livrare', 'Transfer bancar', 'Numerar la livrare'] },
+    ]
+  },
+  {
     id: 'cesiune-drepturi-autor',
     name: 'Cesiune Drepturi de Autor',
     description: 'Cesiunea drepturilor patrimoniale pentru creații: software, design, conținut, muzică',
@@ -1259,6 +1358,310 @@ Prezentul contract este guvernat de legislația română în vigoare.
 PRESTATOR                                    BENEFICIAR
 
 ${data.prestator_nume}                       ${data.beneficiar_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-mentenanta-it') {
+    return `CONTRACT DE MENTENANȚĂ IT
+Nr. ${contractNumber} / ${today}
+
+I. PĂRȚILE CONTRACTANTE
+
+PRESTATOR: ${data.prestator_nume}
+CUI/CNP: ${data.prestator_cui}
+Adresa: ${data.prestator_adresa}
+
+CLIENT: ${data.client_nume}
+CUI/CNP: ${data.client_cui}
+Adresa: ${data.client_adresa}
+
+II. OBIECTUL CONTRACTULUI
+
+Prestatorul se obligă să asigure mentenanța lunară pentru:
+${data.sisteme_mentinute}
+
+Servicii incluse:
+${data.servicii_incluse}
+
+III. NIVELUL DE SERVICIU (SLA)
+
+Timp de răspuns garantat: ${data.timp_raspuns}
+${data.ore_incluse ? `Ore de intervenție incluse lunar: ${data.ore_incluse} ore` : ''}
+${data.tarif_extra ? `Tarif ore suplimentare: ${data.tarif_extra} RON/oră` : ''}
+
+IV. TARIFUL LUNAR
+
+Tariful lunar de mentenanță: ${data.tarif_lunar} RON + TVA (dacă este cazul)
+Plata se efectuează până în ziua 10 a fiecărei luni.
+
+V. DURATA CONTRACTULUI
+
+Data de intrare în vigoare: ${data.data_start}
+Durata: ${data.durata}
+
+Contractul se reînnoiește automat dacă niciuna din părți nu notifică rezilierea cu 30 de zile înainte de expirare.
+
+VI. OBLIGAȚIILE PRESTATORULUI
+
+a) Să monitorizeze sistemele convenite și să intervină în termenele SLA;
+b) Să efectueze backup-uri regulate și actualizări de securitate;
+c) Să raporteze lunar activitățile desfășurate;
+d) Să informeze clientul imediat în caz de incident major;
+e) Să păstreze confidențialitatea datelor și credențialelor clientului.
+
+VII. OBLIGAȚIILE CLIENTULUI
+
+a) Să achite tariful lunar la termenele stabilite;
+b) Să furnizeze accesul necesar (FTP, SSH, admin panel, etc.);
+c) Să informeze prestatorul despre modificări planificate la sisteme;
+d) Să nu facă modificări majore fără acordul prestatorului.
+
+VIII. RĂSPUNDERE
+
+Prestatorul nu răspunde pentru pierderi de date cauzate de acțiunile clientului, atacuri cibernetice sofisticate sau defecțiuni hardware. Răspunderea maximă a Prestatorului nu poate depăși valoarea a 3 luni de contract.
+
+IX. REZILIEREA CONTRACTULUI
+
+Oricare parte poate rezilia contractul cu 30 de zile preaviz scris. Clientul va achita serviciile prestate până la data rezilierii.
+
+X. LITIGII
+
+Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente.
+
+PRESTATOR                                    CLIENT
+
+${data.prestator_nume}                       ${data.client_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-evenimente') {
+    return `CONTRACT DE ORGANIZARE EVENIMENT
+Nr. ${contractNumber} / ${today}
+
+I. ORGANIZATORUL
+
+${data.organizator_nume}
+CUI: ${data.organizator_cui}
+Adresa: ${data.organizator_adresa}
+
+II. CLIENTUL (Beneficiarul)
+
+Nume: ${data.client_nume}
+CNP/CUI: ${data.client_cnp}
+Telefon: ${data.client_telefon}
+
+III. DETALIILE EVENIMENTULUI
+
+Tip eveniment: ${data.tip_eveniment}
+Data: ${data.data_eveniment}
+Ora de începere: ${data.ora_inceput}
+Durata: ${data.durata_ore} ore
+Locație: ${data.locatie}
+Număr participanți: ${data.nr_persoane} persoane
+
+IV. DESCRIEREA SERVICIILOR
+
+${data.descriere_eveniment}
+
+V. PREȚUL ȘI MODALITATEA DE PLATĂ
+
+Prețul total: ${data.pret_total} RON
+Avans la rezervare: ${data.avans} RON (se achită la semnarea contractului)
+Rest de plată: ${parseInt(data.pret_total || '0') - parseInt(data.avans || '0')} RON — plătibil: ${data.termen_plata_rest}
+
+Avansul NU se restituie în caz de anulare cu mai puțin de 7 zile înainte de eveniment.
+
+VI. POLITICA DE ANULARE
+
+- Anulare cu > 14 zile: rambursare integrală a avansului
+- Anulare cu 7-14 zile: rambursare 50% din avans
+- Anulare cu < 7 zile: avansul se reține integral
+- Anulare cauzată de Organizator: rambursare dublă a avansului
+
+VII. OBLIGAȚIILE ORGANIZATORULUI
+
+a) Să pună la dispoziție spațiul și serviciile conform descrierii;
+b) Să asigure curățenia și pregătirea locației cu minim 1 oră înainte;
+c) Să respecte programul stabilit;
+d) Să informeze clientul imediat în caz de situații neprevăzute.
+
+VIII. OBLIGAȚIILE CLIENTULUI
+
+a) Să achite avansul la semnarea contractului;
+b) Să achite restul la termenul convenit;
+c) Să respecte regulamentul locației;
+d) Să răspundă pentru daunele cauzate de participanți.
+
+IX. FORȚA MAJORĂ
+
+În caz de forță majoră (calamități, pandemie declarată oficial, etc.), evenimentul se reprogramează fără penalități.
+
+X. LITIGII
+
+Litigiile se soluționează amiabil sau de instanțele competente.
+
+ORGANIZATOR                                  CLIENT
+
+${data.organizator_nume}                     ${data.client_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-fotograf') {
+    return `CONTRACT DE SERVICII FOTO/VIDEO
+Nr. ${contractNumber} / ${today}
+
+I. FOTOGRAFUL/VIDEOGRAFUL
+
+${data.fotograf_nume}
+CUI/CNP: ${data.fotograf_cui}
+Adresa: ${data.fotograf_adresa}
+
+II. CLIENTUL
+
+Nume: ${data.client_nume}
+CNP/CUI: ${data.client_cnp}
+Telefon: ${data.client_telefon}
+
+III. DETALIILE SESIUNII
+
+Tip sesiune: ${data.tip_sesiune}
+Data: ${data.data_sesiune}
+Ora de start: ${data.ora_inceput}
+Durata: ${data.durata_ore} ore
+Locația: ${data.locatie}
+
+IV. SERVICII INCLUSE
+
+${data.servicii_incluse}
+
+${data.nr_foto_livrate ? `Număr minim fotografii livrate: ${data.nr_foto_livrate} fotografii editate` : ''}
+Termen de livrare: ${data.termen_livrare_zile} zile de la data sesiunii
+Format de livrare: ${data.format_livrare}
+
+V. PREȚUL ȘI PLATA
+
+Prețul total: ${data.pret} RON
+Avans la semnare: ${data.avans} RON (nererambursabil în caz de anulare cu mai puțin de 48 ore)
+Rest: ${parseInt(data.pret || '0') - parseInt(data.avans || '0')} RON — plătibil la/înainte de sesiune
+
+VI. PROPRIETATEA INTELECTUALĂ ȘI DREPTURI DE PUBLICARE
+
+Clientul primește dreptul de utilizare personală și comercială a fotografiilor livrate.
+Fotograful poate utiliza imaginile în scop de portofoliu: ${data.drepturi_publicare}
+
+Fotograful păstrează fișierele RAW originale, care nu sunt incluse în livrabile (dacă nu s-a convenit altfel).
+
+VII. POLITICA DE ANULARE / REPROGRAMARE
+
+- Reprogramare (cu > 7 zile preaviz): o singură reprogramare gratuită
+- Anulare cu < 48 ore: avansul se reține
+- Anulare din cauza fotografului: rambursare dublă a avansului
+
+VIII. CONDIȚII METEOROLOGICE
+
+Pentru sesiunile în exterior, în caz de condiții meteo nefavorabile, sesiunea se reprogramează de comun acord, fără penalități.
+
+IX. LIVRABILE FINALE
+
+Fotograful livrează imagini editate profesional conform stilului agreat. Nu se livrează fotografii nereușite tehnic sau nepotrivite estetic. Numărul menționat reprezintă minimul garantat.
+
+X. LITIGII
+
+Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente.
+
+FOTOGRAF                                     CLIENT
+
+${data.fotograf_nume}                        ${data.client_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-traducator') {
+    return `CONTRACT DE SERVICII DE TRADUCERE
+Nr. ${contractNumber} / ${today}
+
+I. PRESTATORUL DE SERVICII DE TRADUCERE
+
+${data.traducator_nume}
+CUI/CNP: ${data.traducator_cui}
+Adresa: ${data.traducator_adresa}
+
+II. CLIENTUL
+
+${data.client_nume}
+CUI/CNP: ${data.client_cui}
+Adresa: ${data.client_adresa}
+
+III. OBIECTUL CONTRACTULUI
+
+Tipul serviciului: ${data.tip_serviciu}
+Limba sursă: ${data.limba_sursa}
+Limba țintă: ${data.limba_tinta}
+
+Descrierea materialului de tradus:
+${data.descriere_document}
+
+${data.nr_pagini_cuvinte ? `Volum estimat: ${data.nr_pagini_cuvinte}` : ''}
+
+IV. TERMENUL DE LIVRARE
+
+Data de predare a traducerii finale: ${data.termen_livrare}
+Format de livrare: ${data.format_livrare}
+
+V. PREȚUL ȘI MODALITATEA DE PLATĂ
+
+Prețul total al serviciilor: ${data.pret} RON
+Modalitate de plată: ${data.modalitate_plata}
+
+VI. OBLIGAȚIILE TRADUCĂTORULUI
+
+a) Să realizeze traducerea fidelă și profesională a materialului primit;
+b) Să respecte termenul de livrare convenit;
+c) Să notifice clientul imediat dacă apar impedimente;
+d) Să păstreze confidențialitatea conținutului tradus;
+e) Să aplice ștampila de traducător autorizat, dacă este cazul.
+
+VII. OBLIGAȚIILE CLIENTULUI
+
+a) Să furnizeze toate materialele necesare la semnarea contractului;
+b) Să achite prețul convenit conform modalității agreate;
+c) Să furnizeze terminologia specifică domeniului, dacă există;
+d) Să verifice traducerea în termen de 5 zile lucrătoare de la livrare.
+
+VIII. REVIZII
+
+Sunt incluse maximum 2 runde de revizii minore. Modificările substanțiale de conținut față de originalul inițial pot genera costuri suplimentare.
+
+IX. CONFIDENȚIALITATE
+
+Traducătorul se obligă să păstreze strictă confidențialitate asupra conținutului documentelor traduse pe o perioadă de 3 ani de la data contractului.
+
+X. PROPRIETATEA INTELECTUALĂ
+
+Traducerea realizată devine proprietatea clientului după achitarea integrală a prețului convenit.
+
+XI. LITIGII
+
+Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente din România.
+
+XII. DISPOZIȚII FINALE
+
+Prezentul contract a fost încheiat în 2 exemplare originale.
+
+TRADUCĂTORUL                                 CLIENTUL
+
+${data.traducator_nume}                      ${data.client_nume}
 
 Semnătura: _________________                 Semnătura: _________________
 
