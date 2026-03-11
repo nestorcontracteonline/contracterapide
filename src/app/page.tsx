@@ -29,23 +29,26 @@ export default function Home() {
       {/* Hero */}
       <section className="px-4 py-16 text-center bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-2xl mx-auto">
+          <div className="inline-block bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+            Conform legislatiei romane 2026
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-            Contracte legale<br />în 5 minute
+            Protejează-te juridic<br />ca PFA sau freelancer
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            Completezi un formular, primești contractul gata de semnat. 
-            Perfect pentru PFA-uri, freelanceri și agenți.
+            Contract de prestări servicii, NDA sau colaborare — completezi un formular,
+            primești documentul legal gata de semnat. <strong>5 minute, 15 RON.</strong>
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a href="#contracte" className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-              Alege contractul tău
+              Alege contractul tau
             </a>
             <Link href="/agenti" className="border border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-medium hover:border-gray-400 transition-colors">
-              Sunt agent imobiliar/asigurări
+              Sunt agent imobiliar / asigurari
             </Link>
           </div>
           <p className="mt-4 text-sm text-gray-500">
-            15 RON per contract. Fara abonament.
+            Fara abonament. Platesti doar ce folosesti.
           </p>
         </div>
       </section>
@@ -72,8 +75,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Why section */}
+      <section className="px-4 py-16 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-gray-900 mb-3 text-center">De ce ai nevoie de un contract?</h2>
+          <p className="text-gray-500 text-center mb-10">Cele mai comune situatii in care un PFA sau freelancer ramane fara protectie juridica</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-red-50 border border-red-100 rounded-xl p-5">
+              <div className="text-2xl mb-3">🚫</div>
+              <h3 className="font-semibold text-gray-900 mb-2">Clientul nu plateste</h3>
+              <p className="text-sm text-gray-600">Fara contract semnat, nu ai cum sa recuperezi banii pe cale legala. Contractul e singurul document care te protejeaza.</p>
+            </div>
+            <div className="bg-orange-50 border border-orange-100 rounded-xl p-5">
+              <div className="text-2xl mb-3">📋</div>
+              <h3 className="font-semibold text-gray-900 mb-2">Scopul proiectului se extinde</h3>
+              <p className="text-sm text-gray-600">Clientul adauga cerinte noi fara sa plateasca extra. Contractul cu scope clar definit elimina aceasta problema.</p>
+            </div>
+            <div className="bg-yellow-50 border border-yellow-100 rounded-xl p-5">
+              <div className="text-2xl mb-3">🤝</div>
+              <h3 className="font-semibold text-gray-900 mb-2">Dispute despre confidentialitate</h3>
+              <p className="text-sm text-gray-600">Clientul sustine ca ai divulgat informatii sau ca detii drepturile asupra proiectului. Un NDA te protejeaza.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contracts */}
-      <section id="contracte" className="px-4 py-16">
+      <section id="contracte" className="px-4 py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto">
           
           <div className="mb-12">
