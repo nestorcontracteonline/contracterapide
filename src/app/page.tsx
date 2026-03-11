@@ -19,6 +19,8 @@ export default function Home() {
             <a href="#contracte" className="hidden md:block hover:text-gray-900">Contracte</a>
             <a href="#preturi" className="hidden md:block hover:text-gray-900">Prețuri</a>
             <Link href="/agenti" className="hidden md:block hover:text-gray-900">Agenti</Link>
+            <Link href="/blog" className="hidden md:block hover:text-gray-900">Blog</Link>
+            <Link href="/faq" className="hidden md:block hover:text-gray-900">FAQ</Link>
             <Link href="/autentificare" className="bg-blue-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
               Contul meu
             </Link>
@@ -216,6 +218,9 @@ export default function Home() {
             © 2026 ContracteRapide.ro. Toate drepturile rezervate.
           </div>
           <div className="flex gap-6 text-sm text-gray-400">
+            <a href="/contracte" className="hover:text-gray-600">Toate contractele</a>
+            <a href="/blog" className="hover:text-gray-600">Blog</a>
+            <a href="/faq" className="hover:text-gray-600">FAQ</a>
             <a href="/termeni" className="hover:text-gray-600">Termeni</a>
             <a href="/confidentialitate" className="hover:text-gray-600">Confidentialitate</a>
             <a href="mailto:contact@contracterapide.ro" className="hover:text-gray-600">Contact</a>
