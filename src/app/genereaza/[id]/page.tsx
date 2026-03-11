@@ -49,7 +49,7 @@ export default function GeneratePage() {
     setLoading(true)
     setError('')
     try {
-      const res = await fetch('/api/generate', {
+      const res = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -60,16 +60,14 @@ export default function GeneratePage() {
         })
       })
       const data = await res.json()
-      if (data.success) {
-        setContractNumber(data.contractNumber)
-        setPreview(data.contractText)
-        setStep('done')
-        window.scrollTo(0, 0)
+      if (data.url) {
+        // Redirecționăm la Stripe Checkout
+        window.location.href = data.url
       } else {
-        setError(data.error || 'Eroare necunoscuta')
+        setError(data.error || 'Eroare la inițializarea plății')
       }
     } catch {
-      setError('Eroare de conexiune. Incearca din nou.')
+      setError('Eroare de conexiune. Încearcă din nou.')
     } finally {
       setLoading(false)
     }
