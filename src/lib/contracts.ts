@@ -166,6 +166,78 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'durata', label: 'Durata contractului', type: 'select', required: true, options: ['1 lună', '3 luni', '6 luni', '12 luni', 'Nedeterminată'] },
     ]
   },
+
+  {
+    id: 'acord-gdpr',
+    name: 'Acord Prelucrare Date (GDPR)',
+    description: 'Acord obligatoriu pentru colectarea și prelucrarea datelor personale ale clienților',
+    category: 'general' as const,
+    price: 15,
+    fields: [
+      { id: 'operator_nume', label: 'Operatorul (firma ta)', type: 'text' as const, required: true },
+      { id: 'operator_cui', label: 'CUI operator', type: 'text' as const, required: true },
+      { id: 'operator_adresa', label: 'Adresa operatorului', type: 'textarea' as const, required: true },
+      { id: 'persoana_vizata', label: 'Persoana vizată (client/angajat/etc)', type: 'text' as const, required: true },
+      { id: 'scop_prelucrare', label: 'Scopul prelucrării datelor', type: 'textarea' as const, required: true, placeholder: 'Ex: facturare, livrare produse, marketing cu consimțământ' },
+      { id: 'categorii_date', label: 'Categoriile de date prelucrate', type: 'textarea' as const, required: true, placeholder: 'Ex: nume, email, telefon, adresă, CNP' },
+      { id: 'durata_retentie', label: 'Durata retenției datelor', type: 'select' as const, required: true, options: ['1 an', '3 ani', '5 ani', '10 ani', 'Pe durata relației contractuale + 3 ani'] },
+    ]
+  },
+  {
+    id: 'contract-telemunca',
+    name: 'Contract Telemuncă',
+    description: 'Act adițional sau contract pentru munca desfășurată de acasă (remote/hybrid)',
+    category: 'general' as const,
+    price: 15,
+    fields: [
+      { id: 'angajator_nume', label: 'Angajatorul', type: 'text' as const, required: true },
+      { id: 'angajator_cui', label: 'CUI angajator', type: 'text' as const, required: true },
+      { id: 'angajat_nume', label: 'Angajatul', type: 'text' as const, required: true },
+      { id: 'angajat_cnp', label: 'CNP angajat', type: 'text' as const, required: true },
+      { id: 'functia', label: 'Funcția/Postul', type: 'text' as const, required: true, placeholder: 'Ex: Programator, Designer, Contabil' },
+      { id: 'locatie_telemunca', label: 'Locația telemuncii', type: 'text' as const, required: true, placeholder: 'Ex: domiciliul angajatului din Cluj-Napoca' },
+      { id: 'program_lucru', label: 'Programul de lucru', type: 'text' as const, required: true, placeholder: 'Ex: 09:00-17:00, Luni-Vineri' },
+      { id: 'zile_telemunca', label: 'Zile telemuncă/săptămână', type: 'select' as const, required: true, options: ['1 zi/săptămână', '2 zile/săptămână', '3 zile/săptămână', '4 zile/săptămână', '5 zile/săptămână (full remote)'] },
+      { id: 'echipamente', label: 'Echipamente furnizate de angajator', type: 'textarea' as const, required: false, placeholder: 'Ex: laptop, monitor, tastatura (sau "angajatul folosește echipamente proprii")' },
+      { id: 'data_incepere', label: 'Data începerii telemuncii', type: 'date' as const, required: true },
+    ]
+  },
+  {
+    id: 'antecontract-vanzare',
+    name: 'Antecontract Vânzare-Cumpărare',
+    description: 'Promisiune bilaterală de vânzare pentru imobile sau bunuri de valoare mare',
+    category: 'agenti' as const,
+    price: 15,
+    fields: [
+      { id: 'promitent_vanzator', label: 'Promitentul-vânzător', type: 'text' as const, required: true },
+      { id: 'vanzator_cnp', label: 'CNP/CUI promitent-vânzător', type: 'text' as const, required: true },
+      { id: 'promitent_cumparator', label: 'Promitentul-cumpărător', type: 'text' as const, required: true },
+      { id: 'cumparator_cnp', label: 'CNP/CUI promitent-cumpărător', type: 'text' as const, required: true },
+      { id: 'descriere_bun', label: 'Descrierea bunului promis', type: 'textarea' as const, required: true, placeholder: 'Ex: Apartament 3 camere, str. X nr. Y, Cluj-Napoca, CF nr. ...' },
+      { id: 'pret_vanzare', label: 'Prețul de vânzare convenit (EUR)', type: 'number' as const, required: true },
+      { id: 'avans', label: 'Avansul achitat la semnare (EUR)', type: 'number' as const, required: true },
+      { id: 'termen_perfectare', label: 'Termenul de perfectare a vânzării', type: 'date' as const, required: true },
+      { id: 'penalitate', label: 'Penalitate nerespectare (dublu avans)', type: 'select' as const, required: true, options: ['Da, se aplică (standard)', 'Nu se aplică'] },
+    ]
+  },
+  {
+    id: 'cesiune-drepturi-autor',
+    name: 'Cesiune Drepturi de Autor',
+    description: 'Cesiunea drepturilor patrimoniale pentru creații: software, design, conținut, muzică',
+    category: 'freelancer' as const,
+    price: 15,
+    fields: [
+      { id: 'cedent_nume', label: 'Cedentul (creatorul)', type: 'text' as const, required: true },
+      { id: 'cedent_cnp', label: 'CNP/CUI cedent', type: 'text' as const, required: true },
+      { id: 'cesionar_nume', label: 'Cesionarul (beneficiarul)', type: 'text' as const, required: true },
+      { id: 'cesionar_cui', label: 'CUI cesionar', type: 'text' as const, required: true },
+      { id: 'descriere_opera', label: 'Descrierea operei/creației', type: 'textarea' as const, required: true, placeholder: 'Ex: Aplicație software "X", cod sursă în Python/React; Design logo "Brand Y"; Articole blog (10 articole)' },
+      { id: 'tip_cesiune', label: 'Tipul cesiunii', type: 'select' as const, required: true, options: ['Exclusivă (cedentul nu mai poate folosi opera)', 'Neexclusivă (cedentul păstrează dreptul de utilizare)'] },
+      { id: 'teritoriu', label: 'Teritoriul', type: 'select' as const, required: true, options: ['Teritoriul României', 'Uniunea Europeană', 'Mondial'] },
+      { id: 'durata', label: 'Durata cesiunii', type: 'select' as const, required: true, options: ['1 an', '3 ani', '5 ani', '10 ani', 'Toată durata drepturilor de autor (70 ani de la creație)'] },
+      { id: 'pret_cesiune', label: 'Prețul cesiunii (RON)', type: 'number' as const, required: true },
+    ]
+  },
 ]
 
 export function getContractById(id: string): ContractType | undefined {
@@ -663,6 +735,236 @@ Prezentul contract a fost încheiat în 2 exemplare originale.
 CONSULTANTUL                                 CLIENTUL
 
 ${data.consultant_nume}                      ${data.client_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+
+  if (contract.id === 'acord-gdpr') {
+    return `ACORD DE PRELUCRARE A DATELOR CU CARACTER PERSONAL
+Nr. ${contractNumber} / ${today}
+(în conformitate cu Regulamentul UE 2016/679 — GDPR)
+
+I. OPERATORUL DE DATE
+
+Denumire: ${data.operator_nume}
+CUI: ${data.operator_cui}
+Adresa: ${data.operator_adresa}
+
+II. PERSOANA VIZATĂ
+
+${data.persoana_vizata}
+
+III. SCOPUL PRELUCRĂRII
+
+Operatorul prelucrează datele cu caracter personal în următoarele scopuri:
+${data.scop_prelucrare}
+
+IV. CATEGORIILE DE DATE PRELUCRATE
+
+${data.categorii_date}
+
+V. TEMEIUL LEGAL
+
+Prelucrarea se realizează în baza: art. 6 alin. (1) lit. b) GDPR (executarea unui contract) și/sau art. 6 alin. (1) lit. a) GDPR (consimțământul persoanei vizate).
+
+VI. DURATA RETENȚIEI
+
+Datele vor fi păstrate timp de: ${data.durata_retentie}
+
+VII. DREPTURILE PERSOANEI VIZATE
+
+Persoana vizată are dreptul la: acces, rectificare, ștergere, restricționarea prelucrării, portabilitate, opoziție și de a nu face obiectul unei decizii automate. Poate exercita aceste drepturi la: ${data.operator_adresa}
+
+Poate depune plângere la ANSPDCP (www.dataprotection.ro).
+
+VIII. TRANSMITEREA DATELOR CĂTRE TERȚI
+
+Datele nu vor fi transmise către terți fără consimțământul explicit al persoanei vizate, cu excepția obligațiilor legale.
+
+IX. SEMNĂTURĂ
+
+OPERATORUL                                   PERSOANA VIZATĂ
+
+${data.operator_nume}                        ${data.persoana_vizata}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-telemunca') {
+    return `ACT ADIȚIONAL NR. ${contractNumber}
+LA CONTRACTUL INDIVIDUAL DE MUNCĂ
+privind desfășurarea activității în regim de TELEMUNCĂ
+Încheiat la data de: ${today}
+
+În conformitate cu Legea nr. 81/2018 privind reglementarea activității de telemuncă
+
+I. ANGAJATORUL
+
+${data.angajator_nume}
+CUI: ${data.angajator_cui}
+
+II. ANGAJATUL
+
+Nume: ${data.angajat_nume}
+CNP: ${data.angajat_cnp}
+Funcția: ${data.functia}
+
+III. LOCUL DESFĂȘURĂRII ACTIVITĂȚII ÎN REGIM DE TELEMUNCĂ
+
+${data.locatie_telemunca}
+
+IV. PROGRAMUL DE LUCRU
+
+${data.program_lucru}
+Zile telemuncă: ${data.zile_telemunca}
+
+V. OBLIGAȚIILE ANGAJATORULUI (art. 7 Legea 81/2018)
+
+a) Să asigure mijloacele tehnice necesare desfășurării activității;
+b) Să instruiască angajatul privind securitatea și sănătatea în muncă;
+c) Să respecte dreptul la viața privată a angajatului la domiciliu;
+d) Să asigure confidențialitatea datelor procesate de angajat.
+
+VI. OBLIGAȚIILE ANGAJATULUI
+
+a) Să respecte programul de lucru convenit;
+b) Să asigure confidențialitatea informațiilor de serviciu;
+c) Să utilizeze echipamentele conform procedurilor interne;
+d) Să fie disponibil pe canalele de comunicare convenite.
+
+${data.echipamente ? `VII. ECHIPAMENTE
+
+Angajatorul pune la dispoziție:
+${data.echipamente}` : ''}
+
+VIII. DATA INTRĂRII ÎN VIGOARE
+
+Prezentul act adițional intră în vigoare la data de: ${data.data_incepere}
+
+ANGAJATOR                                    ANGAJAT
+
+${data.angajator_nume}                       ${data.angajat_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'antecontract-vanzare') {
+    return `ANTECONTRACT DE VÂNZARE-CUMPĂRARE
+Nr. ${contractNumber} / ${today}
+
+I. PROMITENTUL-VÂNZĂTOR
+
+${data.promitent_vanzator}
+CNP/CUI: ${data.vanzator_cnp}
+
+II. PROMITENTUL-CUMPĂRĂTOR
+
+${data.promitent_cumparator}
+CNP/CUI: ${data.cumparator_cnp}
+
+III. OBIECTUL ANTECONTRACTULUI
+
+Promitentul-vânzător se obligă să vândă, iar Promitentul-cumpărător se obligă să cumpere:
+${data.descriere_bun}
+
+IV. PREȚUL ȘI CONDIȚIILE DE PLATĂ
+
+Prețul total convenit: ${data.pret_vanzare} EUR
+Avans achitat la semnarea antecontractului: ${data.avans} EUR
+Rest de plată la perfectarea vânzării: ${parseInt(data.pret_vanzare || '0') - parseInt(data.avans || '0')} EUR
+
+V. TERMENUL DE PERFECTARE
+
+Vânzarea-cumpărarea definitivă se va perfecta în formă autentică (la notar) până la data de: ${data.termen_perfectare}
+
+VI. CLAUZA PENALIZATOARE
+
+${data.penalitate === 'Da, se aplică (standard)' 
+  ? 'Dacă Promitentul-vânzător refuză perfectarea vânzării, va returna dublu avansul primit. Dacă Promitentul-cumpărător refuză, va pierde avansul achitat.'
+  : 'Părțile au convenit că nu se aplică penalități pentru nerespectarea promisiunii, avansul urmând a fi returnat integral.'}
+
+VII. CHELTUIELI DE PERFECTARE
+
+Cheltuielile notariale și taxele aferente perfectării vânzării vor fi suportate de Promitentul-cumpărător, dacă nu se va conveni altfel.
+
+VIII. DISPOZIȚII FINALE
+
+Prezentul antecontract este guvernat de Codul Civil român. Litigiile se soluționează de instanțele competente.
+
+PROMITENT-VÂNZĂTOR                           PROMITENT-CUMPĂRĂTOR
+
+${data.promitent_vanzator}                   ${data.promitent_cumparator}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'cesiune-drepturi-autor') {
+    return `CONTRACT DE CESIUNE A DREPTURILOR PATRIMONIALE DE AUTOR
+Nr. ${contractNumber} / ${today}
+
+În conformitate cu Legea nr. 8/1996 privind dreptul de autor și drepturile conexe
+
+I. CEDENTUL
+
+Nume: ${data.cedent_nume}
+CNP/CUI: ${data.cedent_cnp}
+
+II. CESIONARUL
+
+Denumire: ${data.cesionar_nume}
+CUI: ${data.cesionar_cui}
+
+III. OBIECTUL CESIUNII
+
+Cedentul cedează Cesionarului drepturile patrimoniale de autor asupra:
+${data.descriere_opera}
+
+IV. TIPUL CESIUNII
+
+Cesiunea este: ${data.tip_cesiune}
+
+V. TERITORIUL
+
+Cesiunea acoperă: ${data.teritoriu}
+
+VI. DURATA
+
+Cesiunea este acordată pentru: ${data.durata}
+
+VII. PREȚUL CESIUNII
+
+Prețul convenit pentru cesiunea drepturilor: ${data.pret_cesiune} RON
+
+Plata se efectuează la semnarea prezentului contract/în termen de 30 zile de la predarea operei.
+
+VIII. DREPTURILE MORALE
+
+Cedentul își rezervă drepturile morale de autor (dreptul la paternitate și integritate), în conformitate cu art. 10 din Legea 8/1996. Cesionarul va menționa numele Cedentului în calitate de autor, dacă natura utilizării permite acest lucru.
+
+IX. GARANȚII
+
+Cedentul garantează că este unicul autor al operei, că opera nu încalcă drepturile terților și că nu a mai cedat aceleași drepturi unor terți.
+
+X. LITIGII
+
+Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente.
+
+XI. DISPOZIȚII FINALE
+
+Prezentul contract a fost încheiat în 2 exemplare originale.
+
+CEDENTUL                                     CESIONARUL
+
+${data.cedent_nume}                          ${data.cesionar_nume}
 
 Semnătura: _________________                 Semnătura: _________________
 
