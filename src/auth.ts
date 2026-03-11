@@ -1,6 +1,5 @@
 import NextAuth from 'next-auth'
 import Google from 'next-auth/providers/google'
-import Apple from 'next-auth/providers/apple'
 import { supabaseAdmin } from '@/lib/supabase'
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
@@ -8,10 +7,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     Google({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
-    Apple({
-      clientId: process.env.APPLE_ID!,
-      clientSecret: process.env.APPLE_SECRET!,
     }),
   ],
   callbacks: {
