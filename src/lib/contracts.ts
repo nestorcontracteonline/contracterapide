@@ -296,15 +296,386 @@ Semnătura: _________________                 Semnătura: _________________
 Data: ${today}                               Data: ${today}`
   }
 
-  // Generic template for other contract types
+  if (contract.id === 'contract-colaborare') {
+    return `CONTRACT DE COLABORARE
+Nr. ${contractNumber} / ${today}
+
+I. PĂRȚILE CONTRACTANTE
+
+PARTEA I: ${data.parte1_nume}
+CUI/CNP: ${data.parte1_cui}
+Adresa: ${data.parte1_adresa}
+
+PARTEA II: ${data.parte2_nume}
+CUI/CNP: ${data.parte2_cui}
+Adresa: ${data.parte2_adresa}
+
+II. OBIECTUL COLABORĂRII
+
+Părțile convin să colaboreze în vederea:
+${data.obiect}
+
+III. DURATA CONTRACTULUI
+
+Prezentul contract se încheie pe o perioadă de: ${data.durata}
+Data de intrare în vigoare: ${today}
+
+IV. DISTRIBUȚIA VENITURILOR
+
+Veniturile rezultate din colaborare se vor distribui astfel:
+${data.distributie_venituri}
+
+V. OBLIGAȚIILE PĂRȚILOR
+
+Fiecare parte se obligă:
+a) Să contribuie cu resursele convenite;
+b) Să respecte termenele și obiectivele stabilite;
+c) Să informeze cealaltă parte despre orice modificare relevantă;
+d) Să păstreze confidențialitatea informațiilor partenerului.
+
+VI. RĂSPUNDEREA CONTRACTUALĂ
+
+Neîndeplinirea obligațiilor asumate atrage răspunderea civilă a părții vinovate.
+
+VII. ÎNCETAREA CONTRACTULUI
+
+Contractul poate înceta prin: acordul ambelor părți, expirarea termenului, sau notificare scrisă cu 30 zile preaviz.
+
+VIII. LITIGII
+
+Litigiile se soluționează pe cale amiabilă sau prin instanțele judecătorești competente.
+
+IX. DISPOZIȚII FINALE
+
+Prezentul contract a fost încheiat în 2 exemplare originale.
+
+PARTEA I                                     PARTEA II
+
+${data.parte1_nume}                          ${data.parte2_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-agent-imobiliar') {
+    return `CONTRACT DE INTERMEDIERE IMOBILIARĂ
+Nr. ${contractNumber} / ${today}
+
+I. PĂRȚILE CONTRACTANTE
+
+AGENȚIA: ${data.agentie_nume}
+CUI: ${data.agentie_cui}
+Agent responsabil: ${data.agent_nume}
+
+CLIENT: ${data.client_nume}
+CNP: ${data.client_cnp}
+Adresa: ${data.client_adresa}
+Telefon: ${data.client_telefon}
+
+II. OBIECTUL CONTRACTULUI
+
+Agenția se obligă să intermedieze o tranzacție de ${data.tip_tranzactie} pentru:
+${data.descriere_proprietate}
+
+${data.pret_estimat ? `Prețul estimat: ${data.pret_estimat} EUR` : ''}
+
+III. COMISIONUL AGENȚIEI
+
+Clientul se obligă să achite agenției un comision de ${data.comision}% din valoarea tranzacției finalizate.
+Comisionul devine exigibil la momentul semnării actelor de tranzacție.
+
+IV. DURATA MANDATULUI
+
+Prezentul contract este valabil pe o perioadă de ${data.durata_mandat} luni de la data semnării.
+
+V. OBLIGAȚIILE AGENȚIEI
+
+a) Să identifice și prezinte proprietăți corespunzătoare cerințelor clientului;
+b) Să organizeze vizionările solicitate;
+c) Să furnizeze informații corecte și complete despre proprietăți;
+d) Să asiste clientul în procesul de negociere.
+
+VI. OBLIGAȚIILE CLIENTULUI
+
+a) Să furnizeze informații corecte despre necesitățile și posibilitățile financiare;
+b) Să achite comisionul convenit la finalizarea tranzacției;
+c) Să informeze agenția imediat despre orice tranzacție directă cu vânzători/cumpărători prezentați de agenție.
+
+VII. EXCLUSIVITATE
+
+Prezentul contract ${data.tip_tranzactie === 'Vânzare' ? 'nu' : 'nu'} conferă exclusivitate agenției.
+
+VIII. LITIGII
+
+Litigiile se soluționează pe cale amiabilă sau prin instanțele din raza domiciliului clientului.
+
+IX. DISPOZIȚII FINALE
+
+Prezentul contract a fost încheiat în 2 exemplare.
+
+AGENȚIA                                      CLIENTUL
+
+${data.agentie_nume}                         ${data.client_nume}
+Agent: ${data.agent_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-agent-asigurari') {
+    return `CONTRACT DE INTERMEDIERE ÎN ASIGURĂRI
+Nr. ${contractNumber} / ${today}
+
+I. PĂRȚILE
+
+BROKERUL/COMPANIA: ${data.broker_nume}
+CUI: ${data.broker_cui}
+Agent: ${data.agent_nume}
+
+ASIGURATUL: ${data.client_nume}
+CNP/CUI: ${data.client_cnp}
+
+II. OBIECTUL CONTRACTULUI
+
+Brokerul se obligă să intermedieze o polița de asigurare de tip: ${data.tip_asigurare}
+
+III. PRIMA DE ASIGURARE
+
+Prima de asigurare anuală: ${data.prima_asigurare} RON
+Perioada asigurată: ${data.perioada}
+
+IV. OBLIGAȚIILE BROKERULUI
+
+a) Să prezinte oferte de asigurare corespunzătoare nevoilor clientului;
+b) Să explice condițiile și excluderile poliței;
+c) Să asiste clientul în caz de daună;
+d) Să acționeze în interesul asiguratului.
+
+V. OBLIGAȚIILE ASIGURATULUI
+
+a) Să furnizeze informații corecte și complete;
+b) Să achite prima de asigurare la termenele convenite;
+c) Să notifice orice modificare a riscului asigurat.
+
+VI. COMISIONUL
+
+Brokerul percepe comision de la compania de asigurări, nu de la asigurat.
+
+VII. LEGEA APLICABILĂ
+
+Prezentul contract este supus legii române. Litigiile se soluționează de instanțele competente.
+
+VIII. DISPOZIȚII FINALE
+
+Prezentul contract a fost redactat în 2 exemplare.
+
+BROKERUL                                     ASIGURATUL
+
+${data.broker_nume}                          ${data.client_nume}
+Agent: ${data.agent_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-vanzare-cumparare') {
+    return `CONTRACT DE VÂNZARE-CUMPĂRARE
+Nr. ${contractNumber} / ${today}
+
+I. PĂRȚILE
+
+VÂNZĂTORUL: ${data.vanzator_nume}
+CUI/CNP: ${data.vanzator_cui}
+
+CUMPĂRĂTORUL: ${data.cumparator_nume}
+CUI/CNP: ${data.cumparator_cui}
+
+II. OBIECTUL CONTRACTULUI
+
+Vânzătorul transmite cumpărătorului dreptul de proprietate asupra:
+${data.descriere_bun}
+
+III. PREȚUL
+
+Prețul de vânzare convenit este de ${data.pret} RON.
+Modalitatea de plată: ${data.modalitate_plata}
+
+IV. PREDAREA BUNULUI
+
+Predarea bunului se va efectua la data de ${data.data_predare}, la ${data.locul_predarii}.
+La momentul predării, vânzătorul garantează că bunul este liber de sarcini și datorii.
+
+V. GARANȚII
+
+Vânzătorul garantează că:
+a) Este proprietarul de drept al bunului;
+b) Bunul nu este gajat, sechestrat sau ipotecat;
+c) Nu există litigii privind bunul.
+
+VI. RĂSPUNDEREA PENTRU VICII
+
+Vânzătorul răspunde pentru viciile ascunse conform Codului Civil.
+
+VII. LITIGII
+
+Litigiile se rezolvă pe cale amiabilă sau de instanțele judecătorești competente.
+
+VIII. DISPOZIȚII FINALE
+
+Prezentul contract a fost încheiat în 2 exemplare originale.
+
+VÂNZĂTORUL                                   CUMPĂRĂTORUL
+
+${data.vanzator_nume}                        ${data.cumparator_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-inchiriere') {
+    return `CONTRACT DE ÎNCHIRIERE
+Nr. ${contractNumber} / ${today}
+
+I. PĂRȚILE
+
+LOCATORUL (Proprietarul): ${data.locator_nume}
+CUI/CNP: ${data.locator_cui}
+
+LOCATARUL (Chiriașul): ${data.locatar_nume}
+CUI/CNP: ${data.locatar_cui}
+
+II. OBIECTUL CONTRACTULUI
+
+Locatorul dă în chirie locatarului:
+${data.descriere_spatiu}
+
+Adresa/Locația: ${data.adresa}
+${data.suprafata ? `Suprafața: ${data.suprafata} mp` : ''}
+
+III. DURATA CONTRACTULUI
+
+Contractul se încheie pe o perioadă de ${data.durata}, începând cu ${data.data_inceput}.
+
+IV. CHIRIA
+
+Chiria lunară este de ${data.chirie_lunara} RON, plătibilă până în ziua 5 a fiecărei luni.
+${data.garantie ? `Garanție: ${data.garantie} luni de chirie, achitată la semnarea contractului.` : ''}
+
+V. OBLIGAȚIILE LOCATORULUI
+
+a) Să predea spațiul în stare corespunzătoare utilizării;
+b) Să asigure liniștita folosință pe durata contractului;
+c) Să efectueze reparațiile majore necesare.
+
+VI. OBLIGAȚIILE LOCATARULUI
+
+a) Să plătească chiria la termenele stabilite;
+b) Să folosească spațiul conform destinației convenite;
+c) Să nu subînchirieze fără acordul scris al locatorului;
+d) Să predea spațiul în starea în care l-a primit.
+
+VII. INDEXAREA CHIRIEI
+
+Chiria se poate indexa anual cu indicele inflației comunicat de INS.
+
+VIII. REZILIEREA CONTRACTULUI
+
+Contractul poate fi reziliat cu 30 zile preaviz scris. Neachitarea chiriei pe 2 luni consecutive dă dreptul locatorului la reziliere imediată.
+
+IX. LITIGII
+
+Litigiile se soluționează de instanțele competente de la locul situării imobilului.
+
+X. DISPOZIȚII FINALE
+
+Prezentul contract a fost încheiat în 2 exemplare originale.
+
+LOCATORUL                                    LOCATARUL
+
+${data.locator_nume}                         ${data.locatar_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-consultanta') {
+    return `CONTRACT DE CONSULTANȚĂ
+Nr. ${contractNumber} / ${today}
+
+I. PĂRȚILE
+
+CONSULTANTUL: ${data.consultant_nume}
+CUI/CNP: ${data.consultant_cui}
+
+CLIENTUL: ${data.client_nume}
+CUI/CNP: ${data.client_cui}
+
+II. OBIECTUL CONTRACTULUI
+
+Consultantul prestează servicii de consultanță în domeniul: ${data.domeniu}
+
+Descrierea serviciilor:
+${data.descriere_servicii}
+
+III. TARIFUL DE CONSULTANȚĂ
+
+Tariful convenit: ${data.tarif} ${data.tip_tarif}
+Durata contractului: ${data.durata}
+
+IV. MODALITATEA DE PLATĂ
+
+Plata se efectuează lunar, pe baza raportului de activitate transmis de consultant, în termen de 15 zile de la emiterea facturii.
+
+V. OBLIGAȚIILE CONSULTANTULUI
+
+a) Să furnizeze servicii de calitate, cu diligența unui profesionist;
+b) Să respecte confidențialitatea informațiilor clientului;
+c) Să raporteze lunar activitățile desfășurate;
+d) Să informeze clientul despre orice conflict de interese.
+
+VI. OBLIGAȚIILE CLIENTULUI
+
+a) Să achite tarifele la termenele convenite;
+b) Să furnizeze informațiile necesare desfășurării activității;
+c) Să colaboreze activ pentru atingerea obiectivelor.
+
+VII. CLAUZA DE CONFIDENȚIALITATE
+
+Consultantul se obligă să păstreze confidențialitatea tuturor informațiilor la care are acces, pe durata contractului și 2 ani după încetarea acestuia.
+
+VIII. PROPRIETATEA INTELECTUALĂ
+
+Lucrările și documentele elaborate de consultant în cadrul acestui contract sunt proprietatea clientului, dacă nu se prevede altfel.
+
+IX. LITIGII
+
+Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente.
+
+X. DISPOZIȚII FINALE
+
+Prezentul contract a fost încheiat în 2 exemplare originale.
+
+CONSULTANTUL                                 CLIENTUL
+
+${data.consultant_nume}                      ${data.client_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  // Fallback
   return `${contract.name.toUpperCase()}
 Nr. ${contractNumber} / ${today}
 
-ÎNTRE PĂRȚILE:
-
 ${Object.entries(data).map(([key, value]) => `${key.replace(/_/g, ' ').toUpperCase()}: ${value}`).join('\n')}
 
-Prezentul contract a fost încheiat cu bună-credință, în conformitate cu legislația română în vigoare.
+Prezentul contract a fost încheiat cu bună-credință, conform legislației române în vigoare.
 
 Semnătura: _________________                 Data: ${today}`
 }
