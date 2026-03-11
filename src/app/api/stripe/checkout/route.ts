@@ -78,3 +78,4 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Eroare la inițializarea plății.' }, { status: 500 })
   }
 }
+// Stripe keys updated Wed Mar 11 03:18:56 PM UTC 2026
