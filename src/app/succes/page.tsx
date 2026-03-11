@@ -74,14 +74,17 @@ function SuccesContent() {
         </div>
 
         <div className="space-y-3">
-          <Link href="/" className="block w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+          <Link href="/contul-meu" className="block w-full bg-blue-600 text-white py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors">
+            Vezi contractul în dashboard →
+          </Link>
+          <Link href="/" className="block w-full border border-blue-200 text-blue-600 py-3 rounded-xl text-sm font-medium hover:bg-blue-50 transition-colors">
             Generează alt contract
           </Link>
           <a
             href="mailto:contact@contracterapide.ro"
-            className="block w-full border border-gray-200 text-gray-600 py-3 rounded-xl text-sm hover:border-gray-300 transition-colors"
+            className="block w-full border border-gray-200 text-gray-400 py-3 rounded-xl text-sm hover:border-gray-300 transition-colors"
           >
-            Ai o problemă? Contactează-ne
+            Ai completat greșit? Contactează-ne în 24h
           </a>
         </div>
       </div>
