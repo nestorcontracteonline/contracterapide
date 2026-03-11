@@ -15,10 +15,13 @@ export default function Home() {
             <span className="text-xl font-bold text-gray-900">ContracteRapide</span>
             <span className="text-xl font-bold text-blue-600">.ro</span>
           </div>
-          <nav className="hidden md:flex gap-6 text-sm text-gray-600">
-            <a href="#contracte" className="hover:text-gray-900">Contracte</a>
-            <a href="#preturi" className="hover:text-gray-900">Prețuri</a>
-            <Link href="/agenti" className="hover:text-gray-900">Pentru agenți</Link>
+          <nav className="flex gap-4 text-sm text-gray-600 items-center">
+            <a href="#contracte" className="hidden md:block hover:text-gray-900">Contracte</a>
+            <a href="#preturi" className="hidden md:block hover:text-gray-900">Prețuri</a>
+            <Link href="/agenti" className="hidden md:block hover:text-gray-900">Agenti</Link>
+            <Link href="/autentificare" className="bg-blue-600 text-white px-3 py-1.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+              Contul meu
+            </Link>
           </nav>
         </div>
       </header>

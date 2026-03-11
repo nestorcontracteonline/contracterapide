@@ -91,6 +91,41 @@ export default function GeneratePage() {
     printWindow.document.close()
   }
 
+  const lookupCif = async (fieldId: string, cifValue: string) => {
+    const clean = cifValue.replace(/[^0-9]/g, '')
+    if (clean.length < 6) return
+    try {
+      const res = await fetch(`/api/anaf?cif=${clean}`)
+      if (!res.ok) return
+      const company = await res.json()
+      if (company.denumire) {
+        // Auto-fill related fields
+        const updates: Record<string, string> = {}
+        if (fieldId.includes('prestator_cui')) {
+          updates['prestator_cui'] = company.cif
+          updates['prestator_nume'] = updates['prestator_nume'] || company.denumire
+          updates['prestator_adresa'] = updates['prestator_adresa'] || company.adresa
+        } else if (fieldId.includes('beneficiar_cui') || fieldId.includes('client_cui') || fieldId.includes('cumparator_cui') || fieldId.includes('locatar_cui')) {
+          const prefix = fieldId.replace('_cui', '')
+          updates[fieldId] = company.cif
+          updates[`${prefix}_nume`] = company.denumire
+          updates[`${prefix}_adresa`] = company.adresa
+        } else if (fieldId.includes('parte1_cui')) {
+          updates['parte1_cui'] = company.cif
+          updates['parte1_nume'] = company.denumire
+          updates['parte1_adresa'] = company.adresa
+        } else if (fieldId.includes('parte2_cui')) {
+          updates['parte2_cui'] = company.cif
+          updates['parte2_nume'] = company.denumire
+          updates['parte2_adresa'] = company.adresa
+        } else {
+          updates[fieldId] = company.cif
+        }
+        setFormData(prev => ({ ...prev, ...updates }))
+      }
+    } catch { /* ignore */ }
+  }
+
   const allRequiredFilled = contract.fields
     .filter(f => f.required)
     .every(f => formData[f.id]?.trim())
@@ -154,7 +189,24 @@ export default function GeneratePage() {
                       {field.options?.map(opt => <option key={opt} value={opt}>{opt}</option>)}
                     </select>
                   ) : (
-                    <input type={field.type === 'phone' ? 'tel' : field.type} className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder={field.placeholder} required={field.required} value={formData[field.id] || ''} onChange={e => setFormData(p => ({ ...p, [field.id]: e.target.value }))} />
+                    <div className="relative">
+                      <input
+                        type={field.type === 'phone' ? 'tel' : field.type}
+                        className="w-full border border-gray-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent pr-16"
+                        placeholder={field.placeholder}
+                        required={field.required}
+                        value={formData[field.id] || ''}
+                        onChange={e => {
+                          setFormData(p => ({ ...p, [field.id]: e.target.value }))
+                          if (field.id.includes('cui') || field.id.includes('cif')) {
+                            lookupCif(field.id, e.target.value)
+                          }
+                        }}
+                      />
+                      {(field.id.includes('cui') || field.id.includes('cif')) && (
+                        <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs bg-blue-100 text-blue-600 px-1.5 py-0.5 rounded font-medium">ANAF</span>
+                      )}
+                    </div>
                   )}
                 </div>
               ))}
