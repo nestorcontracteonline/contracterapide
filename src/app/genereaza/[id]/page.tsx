@@ -77,14 +77,102 @@ export default function GeneratePage() {
     const printWindow = window.open('', '_blank')
     if (!printWindow) return
     printWindow.document.write(`
-      <html><head><title>${contract.name}</title>
-      <style>
-        body { font-family: 'Courier New', monospace; font-size: 12pt; line-height: 1.8; margin: 2cm; color: #000; }
-        pre { white-space: pre-wrap; }
-      </style></head>
-      <body><pre>${preview}</pre>
-      <script>window.onload = () => { window.print(); window.close(); }</script>
-      </body></html>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <title>${contract?.name || 'Contract'} — ContracteRapide.ro</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 11pt;
+      line-height: 1.8;
+      color: #000;
+      background: #fff;
+    }
+    .page {
+      max-width: 21cm;
+      margin: 0 auto;
+      padding: 2.5cm 2.5cm 3cm 2.5cm;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #1a1a2e;
+    }
+    .header h1 {
+      font-size: 15pt;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .header .nr {
+      font-size: 10pt;
+      color: #555;
+    }
+    .contract-body {
+      white-space: pre-wrap;
+      font-size: 11pt;
+      line-height: 1.9;
+      text-align: justify;
+      hyphens: auto;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 12px;
+      border-top: 1px solid #ccc;
+      text-align: center;
+      font-size: 8pt;
+      color: #888;
+    }
+    @media print {
+      body { font-size: 10.5pt; }
+      .page { padding: 0; }
+      .no-print { display: none !important; }
+      @page { margin: 2cm 2.5cm; }
+    }
+    .print-btn {
+      display: block;
+      margin: 0 auto 24px auto;
+      padding: 12px 32px;
+      background: #1a1a2e;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: -apple-system, sans-serif;
+    }
+    .print-hint {
+      text-align: center;
+      font-size: 9pt;
+      color: #888;
+      margin-bottom: 24px;
+      font-family: -apple-system, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <div class="no-print" style="background:#f0f9ff;padding:16px;text-align:center;border-bottom:1px solid #bae6fd;">
+    <button class="print-btn" onclick="window.print()">⬇ Salvează ca PDF / Printează</button>
+    <p class="print-hint">Chrome/Edge: în dialogul de printare alege "Salvare în PDF" ca destinație</p>
+  </div>
+  <div class="page">
+    <div class="header">
+      <h1>${contract?.name || 'Contract'}</h1>
+      <div class="nr">Nr. ${contractNumber} &nbsp;·&nbsp; ContracteRapide.ro</div>
+    </div>
+    <div class="contract-body">${preview.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</div>
+    <div class="footer">
+      Generat prin ContracteRapide.ro — Contracte legale pentru profesioniști români | contact@contracterapide.ro
+    </div>
+  </div>
+</body>
+</html>
     `)
     printWindow.document.close()
   }
