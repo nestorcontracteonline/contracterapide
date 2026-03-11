@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CONTRACT_TYPES } from '@/lib/contracts'
+import ContracteSearch from './ContracteSearch'
 
 export const metadata: Metadata = {
   title: 'Toate Contractele – ContracteRapide.ro | 16 Tipuri pentru PFA și Freelanceri',
@@ -14,19 +15,7 @@ export const metadata: Metadata = {
   },
 }
 
-const categoryLabels: Record<string, string> = {
-  freelancer: '💻 Freelanceri & PFA IT',
-  agenti: '🏠 Agenți & Intermediari',
-  general: '📄 Contracte Generale',
-}
-
 export default function ContractePage() {
-  const byCategory = CONTRACT_TYPES.reduce((acc, c) => {
-    if (!acc[c.category]) acc[c.category] = []
-    acc[c.category].push(c)
-    return acc
-  }, {} as Record<string, typeof CONTRACT_TYPES>)
-
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -52,37 +41,13 @@ export default function ContractePage() {
           </p>
         </div>
 
-        {['freelancer', 'general', 'agenti'].map(cat => (
-          <div key={cat} className="mb-12">
-            <h2 className="text-xl font-semibold text-gray-800 mb-5">{categoryLabels[cat]}</h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {(byCategory[cat] || []).map(contract => (
-                <Link
-                  key={contract.id}
-                  href={`/genereaza/${contract.id}`}
-                  className="bg-white rounded-xl border border-gray-200 p-5 hover:border-blue-400 hover:shadow-md transition-all group"
-                >
-                  <div className="flex justify-between items-start">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-1">
-                        {contract.name}
-                      </h3>
-                      <p className="text-sm text-gray-500 leading-relaxed">{contract.description}</p>
-                    </div>
-                    <span className="ml-4 text-blue-600 font-bold text-sm whitespace-nowrap">
-                      {contract.price} RON →
-                    </span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        ))}
+        {/* Client-side search + list */}
+        <ContracteSearch />
 
         {/* CTA */}
-        <div className="mt-8 bg-blue-600 rounded-2xl p-8 text-center text-white">
-          <h3 className="text-xl font-bold mb-2">Nu știi ce contract ai nevoie?</h3>
-          <p className="text-blue-100 mb-6 text-sm">Scrie-ne și te ajutăm să alegi varianta potrivită.</p>
+        <div className="mt-16 bg-blue-600 rounded-2xl p-8 text-center text-white">
+          <h2 className="text-2xl font-bold mb-2">Nu găsești ce cauți?</h2>
+          <p className="text-blue-100 mb-6">Contactează-ne și îți creăm un contract personalizat.</p>
           <a
             href="mailto:contact@contracterapide.ro"
             className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
