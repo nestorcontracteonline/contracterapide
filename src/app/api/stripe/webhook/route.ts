@@ -72,42 +72,109 @@ export async function POST(req: NextRequest) {
         subject: `Contractul tău: ${contract.name} — ${contractNumber}`,
         html: `
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 <head>
   <meta charset="utf-8">
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #333; margin: 0; padding: 0; }
-    .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; }
-    .header { border-bottom: 2px solid #2563eb; padding-bottom: 20px; margin-bottom: 30px; }
-    .logo { font-size: 20px; font-weight: 700; color: #111; }
-    .logo span { color: #2563eb; }
-    .badge { background: #dcfce7; color: #16a34a; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; display: inline-block; margin-bottom: 16px; }
-    h1 { font-size: 22px; color: #111; margin: 0 0 8px; }
-    .meta { color: #666; font-size: 14px; margin-bottom: 24px; }
-    .contract-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 24px; margin: 24px 0; }
-    .contract-text { font-family: 'Courier New', monospace; font-size: 12px; color: #333; white-space: pre-wrap; line-height: 1.8; }
-    .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #999; font-size: 12px; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contractul tău — ContracteRapide.ro</title>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <div class="logo">ContracteRapide<span>.ro</span></div>
-    </div>
-    <div class="badge">Plată confirmată</div>
-    <h1>${contract.name}</h1>
-    <div class="meta">Nr. ${contractNumber} • ${new Date().toLocaleDateString('ro-RO')}</div>
-    <p>Bună ziua${customerName ? ' ' + customerName : ''},</p>
-    <p>Mulțumim pentru achiziție! Contractul tău a fost generat și este gata de semnat.</p>
-    <div class="contract-box">
-      <div class="contract-text">${contractText}</div>
-    </div>
-    <p style="color:#666; font-size:13px;">Pentru a salva ca PDF: File → Print → Save as PDF</p>
-    <div class="footer">
-      <p>ContracteRapide.ro — Contracte legale pentru profesioniști români</p>
-      <p>Întrebări? <a href="mailto:contact@contracterapide.ro">contact@contracterapide.ro</a></p>
-    </div>
-  </div>
+<body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:40px 16px;">
+    <tr><td align="center">
+      <table width="100%" cellpadding="0" cellspacing="0" style="max-width:580px;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+
+        <!-- Header -->
+        <tr>
+          <td style="background:#2563eb;padding:28px 32px;">
+            <p style="margin:0;font-size:20px;font-weight:700;color:#ffffff;">
+              ContracteRapide<span style="color:#93c5fd;">.ro</span>
+            </p>
+          </td>
+        </tr>
+
+        <!-- Body -->
+        <tr>
+          <td style="padding:32px;">
+
+            <!-- Success badge -->
+            <table cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
+              <tr>
+                <td style="background:#dcfce7;color:#16a34a;padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;">
+                  ✓ Plată confirmată
+                </td>
+              </tr>
+            </table>
+
+            <h1 style="margin:0 0 4px;font-size:22px;color:#111827;">${contract.name}</h1>
+            <p style="margin:0 0 24px;font-size:14px;color:#6b7280;">Nr. ${contractNumber} &nbsp;·&nbsp; ${new Date().toLocaleDateString('ro-RO', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+
+            <p style="margin:0 0 16px;font-size:15px;color:#374151;">
+              Bună ziua${customerName ? ', <strong>' + customerName + '</strong>' : ''},
+            </p>
+            <p style="margin:0 0 24px;font-size:15px;color:#374151;line-height:1.6;">
+              Contractul tău a fost generat cu succes și este disponibil în contul tău. Îl poți vizualiza, copia sau salva ca PDF direct din dashboard.
+            </p>
+
+            <!-- CTA Button -->
+            <table cellpadding="0" cellspacing="0" style="margin:0 0 32px;">
+              <tr>
+                <td style="background:#2563eb;border-radius:8px;">
+                  <a href="https://contracterapide.ro/contul-meu" style="display:inline-block;padding:14px 28px;color:#ffffff;font-size:15px;font-weight:600;text-decoration:none;">
+                    Vezi contractul în dashboard →
+                  </a>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Contract preview box -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;margin-bottom:24px;">
+              <tr>
+                <td style="padding:20px 24px;">
+                  <p style="margin:0 0 12px;font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.05em;">CONTRACTUL TĂU (primele 300 de caractere)</p>
+                  <p style="margin:0;font-family:'Courier New',monospace;font-size:12px;color:#374151;line-height:1.7;white-space:pre-wrap;">${contractText.substring(0, 300)}...</p>
+                </td>
+              </tr>
+            </table>
+
+            <!-- How to use -->
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#eff6ff;border-radius:8px;margin-bottom:24px;">
+              <tr>
+                <td style="padding:20px 24px;">
+                  <p style="margin:0 0 10px;font-size:14px;font-weight:600;color:#1e40af;">Pașii următori:</p>
+                  <p style="margin:0;font-size:14px;color:#1d4ed8;line-height:1.8;">
+                    1. Deschide contractul din dashboard<br>
+                    2. Copiază textul în Word sau Google Docs<br>
+                    3. Adaugă semnăturile (olograf sau electronic)<br>
+                    4. Trimite clientului câte un exemplar
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <p style="margin:0;font-size:13px;color:#9ca3af;line-height:1.6;">
+              Ai o problemă sau ai completat greșit datele? Răspunde la acest email în 24h și îți regenerăm contractul gratuit.
+            </p>
+
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="background:#f9fafb;border-top:1px solid #e5e7eb;padding:20px 32px;">
+            <p style="margin:0 0 4px;font-size:12px;color:#9ca3af;">ContracteRapide.ro — Contracte legale pentru profesioniști români</p>
+            <p style="margin:0;font-size:12px;color:#9ca3af;">
+              <a href="mailto:contact@contracterapide.ro" style="color:#6b7280;">contact@contracterapide.ro</a>
+              &nbsp;·&nbsp;
+              <a href="https://contracterapide.ro/faq" style="color:#6b7280;">FAQ</a>
+              &nbsp;·&nbsp;
+              <a href="https://contracterapide.ro/termeni" style="color:#6b7280;">Termeni</a>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+    </td></tr>
+  </table>
 </body>
 </html>
         `,
