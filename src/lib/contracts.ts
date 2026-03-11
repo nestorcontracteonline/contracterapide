@@ -221,6 +221,94 @@ export const CONTRACT_TYPES: ContractType[] = [
     ]
   },
   {
+    id: 'contract-mandat',
+    name: 'Contract de Mandat',
+    description: 'Împuternicire legală pentru a reprezenta o persoană sau firmă în fața terților',
+    category: 'general',
+    price: 15,
+    fields: [
+      { id: 'mandant_nume', label: 'Mandantul (cel care dă împuternicirea)', type: 'text', required: true, placeholder: 'Ex: ABC SRL' },
+      { id: 'mandant_cui', label: 'CUI/CNP mandant', type: 'text', required: true },
+      { id: 'mandant_adresa', label: 'Adresa mandantului', type: 'textarea', required: true },
+      { id: 'mandant_reprezentant', label: 'Reprezentant legal mandant', type: 'text', required: false, placeholder: 'Dacă e firmă' },
+      { id: 'mandatar_nume', label: 'Mandatarul (cel care primește împuternicirea)', type: 'text', required: true },
+      { id: 'mandatar_cui', label: 'CUI/CNP mandatar', type: 'text', required: true },
+      { id: 'mandatar_adresa', label: 'Adresa mandatarului', type: 'textarea', required: true },
+      { id: 'obiect_mandat', label: 'Ce poate face mandatarul în numele tău?', type: 'textarea', required: true, placeholder: 'Ex: să semneze contracte, să reprezinte firma la ANAF, să încaseze sume...' },
+      { id: 'puteri_acordate', label: 'Puteri specifice acordate', type: 'textarea', required: true, placeholder: 'Ex: semnare acte, negociere contracte, reprezentare în instanță...' },
+      { id: 'data_start', label: 'Data de start', type: 'date', required: true },
+      { id: 'data_sfarsit', label: 'Data de expirare', type: 'date', required: true },
+      { id: 'remuneratie', label: 'Remunerație (RON) — lasă gol dacă e gratuit', type: 'number', required: false },
+    ]
+  },
+  {
+    id: 'contract-subcontractare',
+    name: 'Contract de Subcontractare',
+    description: 'Pentru când subcontractezi o parte dintr-un proiect unui alt freelancer sau firmă',
+    category: 'freelancer',
+    price: 15,
+    fields: [
+      { id: 'contractor_nume', label: 'Contractor principal (tu)', type: 'text', required: true, placeholder: 'Ex: Ion Popescu PFA' },
+      { id: 'contractor_cui', label: 'CUI/CNP contractor', type: 'text', required: true },
+      { id: 'contractor_adresa', label: 'Adresa contractor', type: 'textarea', required: true },
+      { id: 'subcontractor_nume', label: 'Subcontractor (cel angajat)', type: 'text', required: true },
+      { id: 'subcontractor_cui', label: 'CUI/CNP subcontractor', type: 'text', required: true },
+      { id: 'subcontractor_adresa', label: 'Adresa subcontractor', type: 'textarea', required: true },
+      { id: 'descriere_servicii', label: 'Ce servicii sunt subcontractate?', type: 'textarea', required: true },
+      { id: 'valoare', label: 'Valoarea subcontractului', type: 'number', required: true },
+      { id: 'moneda', label: 'Moneda', type: 'select', required: true, options: ['RON', 'EUR', 'USD'] },
+      { id: 'termene_plata', label: 'Termene de plată', type: 'text', required: false, placeholder: 'Ex: 30 de zile de la livrare' },
+      { id: 'data_start', label: 'Data de start', type: 'date', required: true },
+      { id: 'data_sfarsit', label: 'Termen de finalizare', type: 'date', required: true },
+    ]
+  },
+  {
+    id: 'acord-parteneriat',
+    name: 'Acord de Parteneriat',
+    description: 'Colaborare între doi freelanceri, PFA-uri sau firme pe un proiect comun',
+    category: 'freelancer',
+    price: 15,
+    fields: [
+      { id: 'partener1_nume', label: 'Partener 1', type: 'text', required: true },
+      { id: 'partener1_cui', label: 'CUI/CNP Partener 1', type: 'text', required: true },
+      { id: 'partener1_adresa', label: 'Adresa Partener 1', type: 'textarea', required: true },
+      { id: 'partener2_nume', label: 'Partener 2', type: 'text', required: true },
+      { id: 'partener2_cui', label: 'CUI/CNP Partener 2', type: 'text', required: true },
+      { id: 'partener2_adresa', label: 'Adresa Partener 2', type: 'textarea', required: true },
+      { id: 'scop_parteneriat', label: 'Scopul parteneriatului / proiectul comun', type: 'textarea', required: true },
+      { id: 'contributie_p1', label: 'Contribuția Partenerului 1', type: 'textarea', required: true, placeholder: 'Ex: design, front-end, 40h/lună' },
+      { id: 'contributie_p2', label: 'Contribuția Partenerului 2', type: 'textarea', required: true, placeholder: 'Ex: back-end, DevOps, 40h/lună' },
+      { id: 'impartire_venituri', label: 'Împărțirea veniturilor', type: 'text', required: true, placeholder: 'Ex: 50/50 sau 60% P1 / 40% P2' },
+      { id: 'data_start', label: 'Data de start', type: 'date', required: true },
+      { id: 'data_sfarsit', label: 'Data de finalizare estimată', type: 'date', required: false },
+    ]
+  },
+  {
+    id: 'contract-servicii-it',
+    name: 'Contract Servicii IT Complet',
+    description: 'Contract detaliat pentru proiecte IT complexe — include proprietate intelectuală, garanție, scope management',
+    category: 'freelancer',
+    price: 15,
+    fields: [
+      { id: 'prestator_nume', label: 'Prestatorul (tu)', type: 'text', required: true, placeholder: 'Ex: Ion Popescu PFA' },
+      { id: 'prestator_cui', label: 'CUI/CNP prestator', type: 'text', required: true },
+      { id: 'prestator_adresa', label: 'Adresa prestatorului', type: 'textarea', required: true },
+      { id: 'beneficiar_nume', label: 'Beneficiarul (clientul)', type: 'text', required: true },
+      { id: 'beneficiar_cui', label: 'CUI/CNP beneficiar', type: 'text', required: false },
+      { id: 'beneficiar_adresa', label: 'Adresa beneficiarului', type: 'textarea', required: false },
+      { id: 'descriere_servicii', label: 'Descrierea serviciilor IT', type: 'textarea', required: true, placeholder: 'Ex: Dezvoltare aplicație web, design UI/UX, integrare API...' },
+      { id: 'deliverabile', label: 'Deliverabile concrete', type: 'textarea', required: true, placeholder: 'Ex: cod sursă, documentație tehnică, 3 runde de revizii...' },
+      { id: 'valoare', label: 'Valoarea contractului', type: 'number', required: true },
+      { id: 'moneda', label: 'Moneda', type: 'select', required: true, options: ['EUR', 'RON', 'USD'] },
+      { id: 'avans', label: 'Avans (%)', type: 'number', required: false, placeholder: 'Ex: 30' },
+      { id: 'data_start', label: 'Data de start', type: 'date', required: true },
+      { id: 'data_sfarsit', label: 'Data de livrare', type: 'date', required: true },
+      { id: 'zile_acceptanta', label: 'Zile pentru acceptanță livrabile', type: 'number', required: false, placeholder: 'Default: 5 zile' },
+      { id: 'garantie', label: 'Perioadă garanție', type: 'select', required: false, options: ['14 zile', '30 de zile', '60 de zile', '90 de zile'] },
+      { id: 'durata_confidentialitate', label: 'Durata clauzei de confidențialitate', type: 'select', required: false, options: ['1 an', '2 ani', '3 ani', '5 ani', 'Nedeterminat'] },
+    ]
+  },
+  {
     id: 'cesiune-drepturi-autor',
     name: 'Cesiune Drepturi de Autor',
     description: 'Cesiunea drepturilor patrimoniale pentru creații: software, design, conținut, muzică',
@@ -965,6 +1053,212 @@ Prezentul contract a fost încheiat în 2 exemplare originale.
 CEDENTUL                                     CESIONARUL
 
 ${data.cedent_nume}                          ${data.cesionar_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-mandat') {
+    return `CONTRACT DE MANDAT
+Nr. ${contractNumber} / ${today}
+
+Încheiat între:
+
+MANDANT: ${data.mandant_nume}, CUI/CNP: ${data.mandant_cui}, cu sediul/domiciliul în ${data.mandant_adresa}, reprezentat prin ${data.mandant_reprezentant || data.mandant_nume},
+
+și
+
+MANDATAR: ${data.mandatar_nume}, CUI/CNP: ${data.mandatar_cui}, cu sediul/domiciliul în ${data.mandatar_adresa},
+
+1. OBIECTUL MANDATULUI
+Mandantul împuternicește Mandatarul să îl reprezinte și să acționeze în numele său pentru: ${data.obiect_mandat}.
+
+2. PUTERILE ACORDATE
+Mandatarul este autorizat să: ${data.puteri_acordate}.
+
+3. DURATA
+Prezentul mandat este valabil de la ${data.data_start} până la ${data.data_sfarsit}.
+
+4. REMUNERAȚIE
+${data.remuneratie ? `Mandatarul va primi o remunerație de ${data.remuneratie} RON pentru îndeplinirea mandatului.` : 'Prezentul mandat este cu titlu gratuit.'}
+
+5. OBLIGAȚIILE MANDATARULUI
+- Să execute mandatul conform instrucțiunilor primite
+- Să informeze mandantul despre progresul acțiunilor
+- Să dea socoteală de gestiunea sa la finalul mandatului
+- Să nu depășească limitele împuternicirii primite
+
+6. REVOCAREA MANDATULUI
+Mandantul poate revoca oricând prezentul mandat prin notificare scrisă.
+
+7. LITIGII
+Eventualele litigii vor fi soluționate pe cale amiabilă sau, în caz de eșec, de instanțele judecătorești competente.
+
+MANDANT                                      MANDATAR
+
+${data.mandant_nume}                         ${data.mandatar_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-subcontractare') {
+    return `CONTRACT DE SUBCONTRACTARE
+Nr. ${contractNumber} / ${today}
+
+Încheiat între:
+
+CONTRACTOR PRINCIPAL: ${data.contractor_nume}, CUI: ${data.contractor_cui}, cu sediul în ${data.contractor_adresa},
+
+și
+
+SUBCONTRACTOR: ${data.subcontractor_nume}, CUI/CNP: ${data.subcontractor_cui}, cu sediul/domiciliul în ${data.subcontractor_adresa},
+
+1. CONTEXT
+Contractorul Principal a încheiat un contract cu beneficiarul final pentru execuția unor lucrări/servicii și dorește să subcontracteze o parte din acestea.
+
+2. OBIECTUL SUBCONTRACTULUI
+Subcontractorul va executa următoarele servicii/lucrări: ${data.descriere_servicii}.
+
+3. VALOARE ȘI PLATĂ
+Contravaloarea serviciilor subcontractate este de ${data.valoare} ${data.moneda || 'RON'}, plătibilă în ${data.termene_plata || '30 de zile de la recepția lucrărilor'}.
+
+4. TERMEN DE EXECUȚIE
+- Data de început: ${data.data_start}
+- Data de finalizare: ${data.data_sfarsit}
+
+5. CALITATE ȘI RECEPȚIE
+Subcontractorul garantează că serviciile vor fi prestate la standardele de calitate convenite. Recepția se va face în termen de 5 zile lucrătoare de la livrare.
+
+6. CONFIDENȚIALITATE
+Subcontractorul se obligă să păstreze confidențialitatea tuturor informațiilor primite în legătură cu proiectul și cu beneficiarul final.
+
+7. PROPRIETATE INTELECTUALĂ
+Toate drepturile de proprietate intelectuală rezultate din prezentul subcontract aparțin Contractorului Principal.
+
+8. RĂSPUNDERE
+Subcontractorul răspunde față de Contractorul Principal pentru orice prejudiciu cauzat prin neîndeplinirea sau îndeplinirea defectuoasă a obligațiilor.
+
+CONTRACTOR PRINCIPAL                         SUBCONTRACTOR
+
+${data.contractor_nume}                      ${data.subcontractor_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'acord-parteneriat') {
+    return `ACORD DE PARTENERIAT
+Nr. ${contractNumber} / ${today}
+
+Încheiat între:
+
+PARTENER 1: ${data.partener1_nume}, CUI/CNP: ${data.partener1_cui}, cu sediul/domiciliul în ${data.partener1_adresa},
+
+și
+
+PARTENER 2: ${data.partener2_nume}, CUI/CNP: ${data.partener2_cui}, cu sediul/domiciliul în ${data.partener2_adresa},
+
+1. SCOPUL PARTENERIATULUI
+Părțile convin să colaboreze pentru: ${data.scop_parteneriat}.
+
+2. CONTRIBUȚII
+- Partener 1: ${data.contributie_p1}
+- Partener 2: ${data.contributie_p2}
+
+3. ÎMPĂRȚIREA VENITURILOR/PROFITURILOR
+${data.impartire_venituri || '50% Partener 1 / 50% Partener 2'}.
+
+4. LUAREA DECIZIILOR
+Deciziile importante se iau cu acordul ambilor parteneri. Deciziile operaționale curente pot fi luate individual în limita competențelor agreate.
+
+5. DURATA
+Prezentul acord este valabil de la ${data.data_start} până la ${data.data_sfarsit || 'data convenită de comun acord pentru finalizarea proiectului'}.
+
+6. CONFIDENȚIALITATE
+Ambii parteneri se obligă să păstreze confidențialitatea informațiilor schimbate în cadrul acestui parteneriat.
+
+7. ÎNCETAREA ACORDULUI
+Acordul poate înceta prin:
+- Acordul scris al ambelor părți
+- Finalizarea proiectului/scopului parteneriatului
+- Notificare cu 30 de zile preaviz
+
+8. LITIGII
+Eventualele dispute vor fi rezolvate pe cale amiabilă. În caz de eșec, competența revine instanțelor judecătorești.
+
+PARTENER 1                                   PARTENER 2
+
+${data.partener1_nume}                       ${data.partener2_nume}
+
+Semnătura: _________________                 Semnătura: _________________
+
+Data: ${today}                               Data: ${today}`
+  }
+
+  if (contract.id === 'contract-servicii-it') {
+    return `CONTRACT DE SERVICII IT
+Nr. ${contractNumber} / ${today}
+
+Încheiat între:
+
+PRESTATOR: ${data.prestator_nume}, CUI/CNP: ${data.prestator_cui}, cu sediul/domiciliul în ${data.prestator_adresa}, denumit în continuare "Prestatorul",
+
+și
+
+BENEFICIAR: ${data.beneficiar_nume}, CUI/CNP: ${data.beneficiar_cui || '-'}, cu sediul/domiciliul în ${data.beneficiar_adresa || '-'}, denumit în continuare "Beneficiarul",
+
+1. OBIECTUL CONTRACTULUI
+Prestatorul se obligă să furnizeze următoarele servicii IT: ${data.descriere_servicii}.
+
+Deliverabilele includ: ${data.deliverabile || 'documentate și convenite separat în specificații tehnice'}.
+
+2. VALOARE ȘI MODALITATE DE PLATĂ
+- Valoare totală: ${data.valoare} ${data.moneda || 'EUR'}
+- Avans (dacă există): ${data.avans || '0'}%
+- Plata finală: la livrarea și acceptarea proiectului
+- Modalitate: transfer bancar în contul Prestatorului
+
+3. TERMENE
+- Data de debut: ${data.data_start}
+- Data de livrare estimată: ${data.data_sfarsit}
+- Eventualele întârzieri cauzate de Beneficiar (feedback tardiv, specificații incomplete) nu sunt imputabile Prestatorului.
+
+4. ACCEPTANȚA LIVRABILELOR
+Beneficiarul dispune de ${data.zile_acceptanta || '5'} zile lucrătoare pentru a testa și accepta livrabilele. Lipsa unui răspuns în acest termen constituie acceptanță tacită.
+
+5. MODIFICĂRI DE SCOP
+Orice modificare față de specificațiile inițiale se negociază separat și poate genera costuri adiționale. Prestatorul va transmite o ofertă de preț pentru modificări înainte de execuție.
+
+6. PROPRIETATE INTELECTUALĂ
+La plata integrală, drepturile de autor și proprietatea intelectuală asupra livrabilelor se transferă Beneficiarului, cu excepția componentelor open-source sau licențiate terț.
+
+7. CONFIDENȚIALITATE
+Prestatorul se obligă să păstreze confidențialitatea tuturor informațiilor primite de la Beneficiar pe durata și după finalizarea contractului (${data.durata_confidentialitate || '3 ani'}).
+
+8. GARANȚIE
+Prestatorul acordă o perioadă de garanție de ${data.garantie || '30 de zile'} pentru remedierea defectelor apărute din vina sa.
+
+9. RĂSPUNDERE LIMITATĂ
+Răspunderea Prestatorului nu poate depăși valoarea contractului. Prestatorul nu răspunde pentru prejudicii indirecte sau pierderi de profit.
+
+10. REZILIERE
+Contractul poate fi reziliat:
+- De Beneficiar: cu 15 zile preaviz, cu plata serviciilor prestate până la acea dată
+- De Prestator: în caz de neplată după 30 de zile de la scadență
+
+11. FORȚĂ MAJORĂ
+Niciuna din părți nu răspunde pentru neexecutarea obligațiilor cauzată de evenimente de forță majoră.
+
+12. LEGISLAȚIE APLICABILĂ
+Prezentul contract este guvernat de legislația română în vigoare.
+
+PRESTATOR                                    BENEFICIAR
+
+${data.prestator_nume}                       ${data.beneficiar_nume}
 
 Semnătura: _________________                 Semnătura: _________________
 

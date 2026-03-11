@@ -1,0 +1,27 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deployment
+        run: |
+          RESPONSE=$(curl -s -X POST "https://api.vercel.com/v13/deployments?teamId=team_OW0WotJ3eRsGP0FKNcOdcSbd&forceNew=1" \
+            -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "name": "contracterapide",
+              "project": "prj_vOXwrVur4Kn09YInZg4o11gBz4pT",
+              "gitSource": {
+                "type": "github",
+                "org": "nestorcontracteonline",
+                "repo": "contracterapide",
+                "ref": "main"
+              },
+              "target": "production"
+            }')
+          echo "$RESPONSE" | python3 -c "import sys,json; r=json.load(sys.stdin); print('Deploy ID:', r.get('id','ERR')); print('URL:', r.get('url',''))"
