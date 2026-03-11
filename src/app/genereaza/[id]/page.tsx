@@ -254,20 +254,52 @@ export default function GeneratePage() {
         {step === 'preview' && (
           <>
             <div className="mb-4">
-              <h1 className="text-2xl font-bold text-gray-900">Verifica contractul</h1>
-              <p className="text-gray-500 mt-1 text-sm">Dupa plata primesti documentul complet pe email</p>
+              <h1 className="text-2xl font-bold text-gray-900">Previzualizare contract</h1>
+              <p className="text-gray-500 mt-1 text-sm">Primele 3 clauze sunt vizibile. Dupa plata primesti contractul complet.</p>
             </div>
 
-            {/* Contract preview — readable on mobile */}
-            <div className="border border-gray-200 rounded-xl bg-white mb-5 overflow-hidden">
-              <div className="bg-gray-50 px-4 py-3 border-b border-gray-200 flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-700">{contract.name}</span>
-                <span className="text-xs text-gray-400">Previzualizare</span>
-              </div>
-              <div className="p-4 max-h-72 overflow-y-auto">
-                <pre className="text-xs text-gray-600 whitespace-pre-wrap font-mono leading-relaxed">{preview}</pre>
-              </div>
-            </div>
+            {/* Contract teaser — first 3 clauses visible, rest blurred */}
+            {(() => {
+              // Split contract text into clauses (Art. X or Roman numerals sections)
+              const lines = preview.split('\n')
+              const clauseStarts: number[] = []
+              lines.forEach((line, i) => {
+                if (/^(Art\.|Articolul|ARTICOLUL|Clauza|CLAUZA)\s+\d+/i.test(line.trim()) || /^[IVX]+\.\s+/i.test(line.trim())) {
+                  clauseStarts.push(i)
+                }
+              })
+              // Show up to the end of clause 3 (or ~40 lines if no clauses detected)
+              const cutoffLine = clauseStarts.length >= 4 ? clauseStarts[3] : Math.min(40, Math.floor(lines.length * 0.35))
+              const visibleText = lines.slice(0, cutoffLine).join('\n')
+              const hiddenText = lines.slice(cutoffLine).join('\n')
+
+              return (
+                <div className="border border-gray-200 rounded-xl bg-white mb-5 overflow-hidden">
+                  <div className="bg-gray-50 px-4 py-3 border-b border-gray-200 flex justify-between items-center">
+                    <span className="text-sm font-medium text-gray-700">{contract.name}</span>
+                    <span className="text-xs bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full font-medium">Previzualizare gratuita</span>
+                  </div>
+                  <div className="p-4">
+                    {/* Visible clauses */}
+                    <pre className="text-xs text-gray-700 whitespace-pre-wrap font-mono leading-relaxed">{visibleText}</pre>
+                    {/* Blurred/locked section */}
+                    {hiddenText && (
+                      <div className="relative mt-0">
+                        <pre className="text-xs text-gray-500 whitespace-pre-wrap font-mono leading-relaxed blur-sm select-none pointer-events-none line-clamp-6 max-h-24 overflow-hidden">
+                          {hiddenText.split('\n').slice(0, 8).join('\n')}
+                        </pre>
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white flex flex-col items-center justify-end pb-2">
+                          <div className="flex items-center gap-1.5 text-xs text-gray-500 font-medium bg-white border border-gray-200 rounded-full px-3 py-1.5 shadow-sm">
+                            <span>🔒</span>
+                            <span>{clauseStarts.length > 3 ? `+${clauseStarts.length - 3} clauze` : 'Restul contractului'} disponibile dupa plata</span>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )
+            })()}
 
             {/* Price box */}
             <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-5">
