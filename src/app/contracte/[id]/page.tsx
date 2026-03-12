@@ -7,15 +7,16 @@ export async function generateStaticParams() {
   return CONTRACT_TYPES.map(c => ({ id: c.id }))
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const contract = getContractById(params.id)
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const contract = getContractById(id)
   if (!contract) return {}
 
   return {
     title: `${contract.name} 2026 – Model Complet pentru PFA și Freelanceri | ContracteRapide.ro`,
     description: `${contract.description}. Generat instant, conform legislației române 2026. 15 RON, fără abonament.`,
     keywords: `${contract.name.toLowerCase()}, model ${contract.name.toLowerCase()}, ${contract.name.toLowerCase()} pfa, ${contract.name.toLowerCase()} romania 2026`,
-    alternates: { canonical: `https://contracterapide.ro/contracte/${params.id}` },
+    alternates: { canonical: `https://contracterapide.ro/contracte/${id}` },
     openGraph: {
       title: `${contract.name} – ContracteRapide.ro`,
       description: contract.description,
@@ -24,8 +25,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   }
 }
 
-export default function ContractLandingPage({ params }: { params: { id: string } }) {
-  const contract = getContractById(params.id)
+export default async function ContractLandingPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const contract = getContractById(id)
   if (!contract) notFound()
 
   return (
