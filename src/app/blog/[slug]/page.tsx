@@ -121,16 +121,16 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </article>
 
-        {/* CTA */}
-        <div className="mt-12 bg-blue-50 rounded-xl p-8 text-center">
-          <h2 className="text-xl font-bold text-gray-900 mb-2">Gata să generezi contractul?</h2>
-          <p className="text-gray-600 mb-6 text-sm">5 minute. 15 RON. Document legal conform legislației române 2025.</p>
-          <Link
-            href="/"
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors"
-          >
-            Generează contractul tău →
+        {/* CTA la final articol */}
+        <div className="mt-12 bg-blue-50 border border-blue-100 rounded-2xl p-8 text-center">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">Ai nevoie de un contract acum?</h3>
+          <p className="text-gray-600 mb-6 text-sm">Generat în 5 minute, conform legislației române 2026. 15 RON, fără abonament.</p>
+          <Link href="/" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+            Generează contract — 15 RON →
           </Link>
+          <p className="text-xs text-gray-400 mt-3">
+            Prestări servicii · NDA · Colaborare · Închiriere · și 16 alte tipuri
+          </p>
         </div>
 
         {/* Related posts */}

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CONTRACT_TYPES } from "@/lib/contracts";
 import NewsletterForm from "@/components/NewsletterForm";
+import BundleButton from "@/components/BundleButton";
 
 export default function Home() {
   const freelancerContracts = CONTRACT_TYPES.filter(c => c.category === 'freelancer');
@@ -313,11 +314,12 @@ export default function Home() {
               <h3 className="font-bold text-gray-900 mb-1">Pachet 10</h3>
               <div className="text-3xl font-bold text-gray-900 mb-2">99 RON</div>
               <p className="text-sm text-gray-500 mb-4">10 contracte = 9.9 RON/buc</p>
-              <ul className="text-sm text-gray-600 space-y-2">
+              <ul className="text-sm text-gray-600 space-y-2 mb-4">
                 <li className="flex items-center gap-2"><span className="text-green-500">✓</span> 10 contracte orice tip</li>
                 <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Valabile 12 luni</li>
                 <li className="flex items-center gap-2"><span className="text-green-500">✓</span> Economisesti 51 RON</li>
               </ul>
+              <BundleButton />
             </div>
           </div>
         </div>

@@ -11,7 +11,39 @@ function getStripe() {
 
 export async function POST(req: NextRequest) {
   try {
-    const { contractId, formData, email, name } = await req.json()
+    const body = await req.json()
+    const { contractId, formData, email, name, packageType, customerName } = body
+
+    // Pachet 10 contracte
+    if (packageType === 'bundle10') {
+      const stripe = getStripe()
+      const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://contracterapide.ro'
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ['card'],
+        line_items: [{
+          price_data: {
+            currency: 'ron',
+            product_data: {
+              name: 'Pachet 10 Contracte — ContracteRapide.ro',
+              description: '10 credite pentru generare contracte. Valabile 12 luni.',
+            },
+            unit_amount: 9900,
+          },
+          quantity: 1,
+        }],
+        mode: 'payment',
+        success_url: `${appUrl}/succes?session_id={CHECKOUT_SESSION_ID}&type=bundle`,
+        cancel_url: `${appUrl}/`,
+        customer_email: email || undefined,
+        metadata: {
+          package_type: 'bundle10',
+          customer_email: email || '',
+          customer_name: customerName || '',
+        },
+        locale: 'ro',
+      })
+      return NextResponse.json({ url: session.url })
+    }
 
     const contract = getContractById(contractId)
     if (!contract) {
