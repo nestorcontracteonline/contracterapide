@@ -38,6 +38,7 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'acceptare_livrabil_zile', label: 'Termen acceptare livrabil (zile)', type: 'number', required: false, placeholder: 'Ex: 5' },
       { id: 'penalitate_intarziere_plata', label: 'Penalitate întârziere plată (%/zi)', type: 'number', required: false, placeholder: 'Ex: 0.5' },
       { id: 'limitare_raspundere', label: 'Limitarea răspunderii', type: 'select', required: false, options: ['Limitată la valoarea contractului', 'Limitată la 2x valoarea contractului', 'Nelimitată'] },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -56,6 +57,7 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'obiect', label: 'Obiectul colaborării', type: 'textarea', required: true },
       { id: 'durata', label: 'Durata colaborării', type: 'select', required: true, options: ['3 luni', '6 luni', '12 luni', 'Nedeterminată'] },
       { id: 'distributie_venituri', label: 'Distribuția veniturilor (%)', type: 'text', required: true, placeholder: 'Ex: 60% Partea I, 40% Partea II' },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -79,6 +81,7 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'durata_mandat', label: 'Durata mandatului (luni)', type: 'number', required: true, placeholder: 'Ex: 3' },
       { id: 'exclusivitate', label: 'Exclusivitate agenție', type: 'select', required: true, options: ['Fără exclusivitate (clientul poate colabora cu mai multe agenții)', 'Cu exclusivitate (clientul colaborează exclusiv cu această agenție)'] },
       { id: 'comision_tranzactie_directa', label: 'Comision tranzacție directă (%)', type: 'number', required: false, placeholder: 'Comision dacă clientul tranzacționează direct (Ex: 1.5)' },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -96,6 +99,8 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'tip_asigurare', label: 'Tipul asigurării', type: 'select', required: true, options: ['RCA', 'CASCO', 'Asigurare de viață', 'Asigurare locuință', 'Asigurare de sănătate', 'Asigurare de călătorie'] },
       { id: 'prima_asigurare', label: 'Prima de asigurare (RON/an)', type: 'number', required: true },
       { id: 'perioada', label: 'Perioada asigurată', type: 'select', required: true, options: ['1 an', '2 ani', '5 ani', '10 ani', 'Nedeterminat'] },
+      { id: 'numar_autorizatie_asf', label: 'Număr autorizație/înregistrare ASF', type: 'text', required: true, placeholder: 'Ex: ASF/2024/12345' },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -113,6 +118,7 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'scop', label: 'Scopul divulgării', type: 'textarea', required: true, placeholder: 'Ex: evaluarea unui parteneriat de business' },
       { id: 'durata_confidentialitate', label: 'Durata obligației de confidențialitate', type: 'select', required: true, options: ['1 an', '2 ani', '3 ani', '5 ani', 'Nedeterminat'] },
       { id: 'clauza_penalitate', label: 'Penalitate pentru nerespectare (RON)', type: 'number', required: false, placeholder: 'Ex: 10000' },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -131,6 +137,8 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'modalitate_plata', label: 'Modalitatea de plată', type: 'select', required: true, options: ['Numerar', 'Transfer bancar', 'Card', 'Rate', 'Parțial avans'] },
       { id: 'data_predare', label: 'Data predării bunului', type: 'date', required: true },
       { id: 'locul_predarii', label: 'Locul predării', type: 'text', required: true },
+      { id: 'termen_vicii_ascunse', label: 'Termen sesizare vicii ascunse', type: 'select', required: false, options: ['1 an', '2 ani', '3 ani'] },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -156,6 +164,7 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'reziliere_preaviz_zile', label: 'Preaviz reziliere (zile)', type: 'number', required: false, placeholder: 'Ex: 30' },
       { id: 'titlu_executoriu', label: 'Titlu executoriu', type: 'select', required: false, options: ['Da, contractul constituie titlu executoriu (necesită autentificare notarială)', 'Nu'] },
       { id: 'reparatii_minore_pana_la', label: 'Reparații minore în sarcina chiriașului (RON)', type: 'number', required: false, placeholder: 'Ex: 200' },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -174,6 +183,7 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'tarif', label: 'Tariful', type: 'number', required: true, placeholder: 'Ex: 100' },
       { id: 'tip_tarif', label: 'Tipul tarifului', type: 'select', required: true, options: ['RON/oră', 'EUR/oră', 'RON/zi', 'EUR/zi', 'RON/lună', 'EUR/lună', 'Forfetar RON', 'Forfetar EUR'] },
       { id: 'durata', label: 'Durata contractului', type: 'select', required: true, options: ['1 lună', '3 luni', '6 luni', '12 luni', 'Nedeterminată'] },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
 
@@ -191,6 +201,21 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'scop_prelucrare', label: 'Scopul prelucrării datelor', type: 'textarea' as const, required: true, placeholder: 'Ex: facturare, livrare produse, marketing cu consimțământ' },
       { id: 'categorii_date', label: 'Categoriile de date prelucrate', type: 'textarea' as const, required: true, placeholder: 'Ex: nume, email, telefon, adresă, CNP' },
       { id: 'durata_retentie', label: 'Durata retenției datelor', type: 'select' as const, required: true, options: ['1 an', '3 ani', '5 ani', '10 ani', 'Pe durata relației contractuale + 3 ani'] },
+      { id: 'operator_tip', label: 'Forma juridică operator', type: 'select' as const, required: false, options: ['SRL', 'SA', 'PFA', 'RA', 'Altul'] },
+      { id: 'operator_reprezentant', label: 'Reprezentant legal operator (dacă e firmă)', type: 'text' as const, required: false },
+      { id: 'imputernicit_nume', label: 'Persoana Împuternicită — DPA art.28 (firma care prelucrează)', type: 'text' as const, required: false, placeholder: 'Ex: CloudPay SRL, agentul de marketing etc.' },
+      { id: 'imputernicit_cui', label: 'CUI Persoana Împuternicită', type: 'text' as const, required: false },
+      { id: 'imputernicit_adresa', label: 'Adresa Persoana Împuternicită', type: 'textarea' as const, required: false },
+      { id: 'scopul_prelucrarii', label: 'Scopul prelucrării (art. 28 RGPD)', type: 'textarea' as const, required: false, placeholder: 'Ex: procesare plăți, gestionare CRM, servicii HR' },
+      { id: 'durata_prelucrarii', label: 'Durata prelucrării', type: 'text' as const, required: false, placeholder: 'Ex: pe durata contractului principal + 5 ani' },
+      { id: 'tipul_datelor_prelucrate', label: 'Tipul datelor prelucrate (DPA)', type: 'textarea' as const, required: false, placeholder: 'Ex: nume, email, date financiare, adrese IP' },
+      { id: 'categorii_persoane_vizate', label: 'Categorii persoane vizate', type: 'textarea' as const, required: false, placeholder: 'Ex: clienți PF, angajați, utilizatori platformă' },
+      { id: 'masuri_securitate', label: 'Măsuri de securitate (art. 32 RGPD)', type: 'select' as const, required: false, options: ['Criptare AES-256 + access control', 'SSL/TLS + autentificare 2FA', 'Pseudonimizare + control acces', 'Conform ISO 27001'] },
+      { id: 'subimputerniciti_existenti', label: 'Sub-împuterniciți existenți (opțional)', type: 'textarea' as const, required: false, placeholder: 'Ex: AWS Ireland, Google Cloud EU' },
+      { id: 'tara_transfer_date', label: 'Teritoriu prelucrare date', type: 'text' as const, required: false, placeholder: 'Ex: România / UE' },
+      { id: 'contract_principal_referinta', label: 'Nr. contract principal de referință', type: 'text' as const, required: false },
+      { id: 'numar_exemplare', label: 'Număr exemplare', type: 'number' as const, required: false, placeholder: '2' },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text' as const, required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -210,6 +235,12 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'zile_telemunca', label: 'Zile telemuncă/săptămână', type: 'select' as const, required: true, options: ['1 zi/săptămână', '2 zile/săptămână', '3 zile/săptămână', '4 zile/săptămână', '5 zile/săptămână (full remote)'] },
       { id: 'echipamente', label: 'Echipamente furnizate de angajator', type: 'textarea' as const, required: false, placeholder: 'Ex: laptop, monitor, tastatura (sau "angajatul folosește echipamente proprii")' },
       { id: 'data_incepere', label: 'Data începerii telemuncii', type: 'date' as const, required: true },
+      { id: 'loc_desfasurare_telemunca', label: 'Adresa exactă telemuncă (Legea 81/2018)', type: 'text' as const, required: true, placeholder: 'Ex: Str. X nr. Y, ap. Z, Cluj-Napoca' },
+      { id: 'program_verificare_activitate', label: 'Interval orar verificare activitate de angajator', type: 'text' as const, required: true, placeholder: 'Ex: 09:00-17:00, cu notificare prealabilă de 1 oră' },
+      { id: 'modalitate_evidenta_ore', label: 'Modalitate evidență ore lucrate', type: 'select' as const, required: true, options: ['Pontaj electronic', 'Raport zilnic email', 'Aplicație dedicată', 'Alt sistem'] },
+      { id: 'cheltuieli_intretinere', label: 'Rambursare cheltuieli întreținere (RON/lună, 0 dacă nu)', type: 'number' as const, required: true, placeholder: 'Ex: 100' },
+      { id: 'echipament_furnizat_de', label: 'Echipamente de muncă furnizate de', type: 'select' as const, required: true, options: ['Angajator', 'Salariat', 'Mixt'] },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text' as const, required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -228,6 +259,9 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'avans', label: 'Avansul achitat la semnare (EUR)', type: 'number' as const, required: true },
       { id: 'termen_perfectare', label: 'Termenul de perfectare a vânzării', type: 'date' as const, required: true },
       { id: 'penalitate', label: 'Penalitate nerespectare (dublu avans)', type: 'select' as const, required: true, options: ['Da, se aplică (standard)', 'Nu se aplică'] },
+      { id: 'forma_autentificarii', label: 'Forma autentificării', type: 'select' as const, required: true, options: ['Formă autentică notarială (recomandat pentru imobile)', 'Formă scrisă (pentru bunuri mobile)'] },
+      { id: 'avans_natura', label: 'Natura avansului', type: 'select' as const, required: true, options: ['Arvună confirmatorie (art. 1544 Cod Civil)', 'Avans simplu', 'Arvună penalizatoare'] },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text' as const, required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -249,6 +283,7 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'data_start', label: 'Data de start', type: 'date', required: true },
       { id: 'data_sfarsit', label: 'Data de expirare', type: 'date', required: true },
       { id: 'remuneratie', label: 'Remunerație (RON) — lasă gol dacă e gratuit', type: 'number', required: false },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -270,6 +305,8 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'termene_plata', label: 'Termene de plată', type: 'text', required: false, placeholder: 'Ex: 30 de zile de la livrare' },
       { id: 'data_start', label: 'Data de start', type: 'date', required: true },
       { id: 'data_sfarsit', label: 'Termen de finalizare', type: 'date', required: true },
+      { id: 'beneficiar_final', label: 'Beneficiarul final (clientul tău)', type: 'text', required: false, placeholder: 'Ex: ABC SRL (clientul Contractantului Principal)' },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -295,6 +332,9 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'non_compete_durata', label: 'Clauza de non-compete', type: 'select', required: false, options: ['Fără non-compete', '6 luni', '1 an', '2 ani'] },
       { id: 'mecanism_exit', label: 'Mecanismul de ieșire din parteneriat', type: 'textarea', required: false, placeholder: 'Ex: Partenerul care iese cedează drepturile, celălalt plătește valoarea contribuției evaluate...' },
       { id: 'deadlock_rezolvare', label: 'Rezolvare blocaj decizional (deadlock)', type: 'select', required: false, options: ['Mediator agreat', 'Unul dintre parteneri are drept de veto final', 'Lichidare parteneriat'] },
+      { id: 'partener1_procent', label: 'Cota pierderi Partener 1 (%)', type: 'number', required: false, placeholder: 'Ex: 50' },
+      { id: 'partener2_procent', label: 'Cota pierderi Partener 2 (%)', type: 'number', required: false, placeholder: 'Ex: 50' },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -320,6 +360,7 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'zile_acceptanta', label: 'Zile pentru acceptanță livrabile', type: 'number', required: false, placeholder: 'Default: 5 zile' },
       { id: 'garantie', label: 'Perioadă garanție', type: 'select', required: false, options: ['14 zile', '30 de zile', '60 de zile', '90 de zile'] },
       { id: 'durata_confidentialitate', label: 'Durata clauzei de confidențialitate', type: 'select', required: false, options: ['1 an', '2 ani', '3 ani', '5 ani', 'Nedeterminat'] },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -347,6 +388,7 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'sla_rezolvare_ore', label: 'Timp rezolvare incident critic (ore)', type: 'number', required: false, placeholder: 'Ex: 24' },
       { id: 'proprietate_cod', label: 'Proprietatea codului sursă', type: 'select', required: false, options: ['Codul aparține clientului', 'Codul aparține prestatorului', 'Cod partajat - licență reciprocă'] },
       { id: 'backup_frecventa', label: 'Frecvența backup', type: 'select', required: false, options: ['Zilnic', 'Săptămânal', 'Lunar', 'Nu e inclus'] },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -372,6 +414,7 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'pret_total', label: 'Prețul total (RON)', type: 'number', required: true },
       { id: 'avans', label: 'Avans la rezervare (RON)', type: 'number', required: true, placeholder: 'Ex: 500' },
       { id: 'termen_plata_rest', label: 'Termenul plății restului', type: 'select', required: true, options: ['La data evenimentului', 'Cu 7 zile înainte', 'Cu 3 zile înainte', 'Cu 24 ore înainte'] },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -399,6 +442,12 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'pret', label: 'Prețul total (RON)', type: 'number', required: true },
       { id: 'avans', label: 'Avans la semnare (RON)', type: 'number', required: true, placeholder: 'Ex: 300' },
       { id: 'drepturi_publicare', label: 'Fotograful poate publica imaginile în portofoliu?', type: 'select', required: true, options: ['Da, cu acordul clientului', 'Da, fără restricții', 'Nu, utilizare exclusivă client'] },
+      { id: 'tip_cesiune_foto', label: 'Tipul cesiunii drepturi autor (Legea 8/1996)', type: 'select', required: true, options: ['Exclusivă', 'Neexclusivă'] },
+      { id: 'durata_cesiune_foto', label: 'Durata cesiunii drepturi autor', type: 'select', required: true, options: ['1 an', '3 ani', '5 ani', '10 ani', 'Nelimitată'] },
+      { id: 'teritoriu_cesiune_foto', label: 'Teritoriul cesiunii drepturi autor', type: 'select', required: true, options: ['România', 'Uniunea Europeană', 'Mondial'] },
+      { id: 'modalitati_utilizare_foto', label: 'Modalități de utilizare permise', type: 'textarea', required: false, placeholder: 'Ex: reproducere, distribuire, comunicare publică, afișare, adaptare' },
+      { id: 'drept_atribuire', label: 'Dreptul de atribuire autor', type: 'select', required: true, options: ['Cu menționarea numelui fotografului', 'Fără menționarea numelui (cesiune anonimă)'] },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -423,6 +472,7 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'format_livrare', label: 'Formatul de livrare', type: 'select', required: true, options: ['Document Word/PDF electronic', 'Document tipărit', 'Document tipărit + electronic', 'Traducere autorizată cu ștampilă'] },
       { id: 'pret', label: 'Prețul total (RON)', type: 'number', required: true },
       { id: 'modalitate_plata', label: 'Modalitatea de plată', type: 'select', required: true, options: ['Integral la livrare', 'Avans 50% + rest la livrare', 'Transfer bancar', 'Numerar la livrare'] },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text', required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
   {
@@ -439,13 +489,14 @@ export const CONTRACT_TYPES: ContractType[] = [
       { id: 'descriere_opera', label: 'Descrierea operei/creației', type: 'textarea' as const, required: true, placeholder: 'Ex: Aplicație software "X", cod sursă în Python/React; Design logo "Brand Y"; Articole blog (10 articole)' },
       { id: 'tip_cesiune', label: 'Tipul cesiunii', type: 'select' as const, required: true, options: ['Exclusivă (cedentul nu mai poate folosi opera)', 'Neexclusivă (cedentul păstrează dreptul de utilizare)'] },
       { id: 'teritoriu', label: 'Teritoriul', type: 'select' as const, required: true, options: ['Teritoriul României', 'Uniunea Europeană', 'Mondial'] },
-      { id: 'durata', label: 'Durata cesiunii', type: 'select' as const, required: true, options: ['1 an', '3 ani', '5 ani', '10 ani', 'Toată durata drepturilor de autor (70 ani de la creație)'] },
+      { id: 'durata', label: 'Durata cesiunii', type: 'select' as const, required: true, options: ['1 an', '3 ani', '5 ani', '10 ani', 'Toată durata drepturilor de autor (70 de ani de la decesul autorului — art. 25 Legea 8/1996)'] },
       { id: 'pret_cesiune', label: 'Prețul cesiunii (RON)', type: 'number' as const, required: true },
       { id: 'teritoriu_cesiune', label: 'Teritoriul cesiunii', type: 'select' as const, required: false, options: ['România', 'Uniunea Europeană', 'Mondial'] },
       { id: 'durata_cesiune', label: 'Durata cesiunii', type: 'select' as const, required: false, options: ['1 an', '3 ani', '5 ani', 'Nelimitată (pe durata protecției legale)'] },
       { id: 'opere_viitoare', label: 'Opere viitoare', type: 'select' as const, required: false, options: ['Nu (doar opera specificată)', 'Da, cu act adițional separat per operă'] },
       { id: 'drept_modificare', label: 'Dreptul de modificare/adaptare', type: 'select' as const, required: false, options: ['Da, poate modifica/adapta opera', 'Nu, opera se folosește ca atare'] },
       { id: 'atribuire_autor', label: 'Atribuire autor', type: 'select' as const, required: false, options: ['Da, autorul este menționat public', 'Nu, utilizare anonimă'] },
+      { id: 'localitate_litigii', label: 'Localitate competentă litigii', type: 'text' as const, required: false, placeholder: 'Ex: Cluj-Napoca' },
     ]
   },
 ]
@@ -518,7 +569,7 @@ Niciuna dintre părți nu răspunde pentru neexecutarea obligațiilor cauzată d
 
 XI. LITIGII
 
-Litigiile se rezolvă pe cale amiabilă sau, dacă nu este posibil, prin instanțele judecătorești competente din România.
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 XII. DISPOZIȚII FINALE
 
@@ -550,6 +601,14 @@ II. DEFINIȚII
 "Informații Confidențiale" înseamnă orice informații tehnice, comerciale, financiare sau de altă natură referitoare la:
 ${data.obiect_confidential}
 
+Art. II.2 — Excepții de la obligația de confidențialitate
+Nu constituie încălcarea confidențialității divulgarea de informații care:
+a) erau cunoscute public înainte de data prezentului acord;
+b) devin cunoscute public ulterior, fără culpa Părții Receptoare;
+c) erau cunoscute Părții Receptoare înainte de divulgare, dovedibile prin documente;
+d) sunt obținute în mod legitim de la un terț fără restricții de confidențialitate;
+e) sunt divulgate în temeiul unei obligații legale sau al unui ordin judecătoresc, cu notificarea prealabilă a Părții Divulgatoare.
+
 III. SCOPUL DIVULGĂRII
 
 Informațiile confidențiale sunt divulgate exclusiv în scopul:
@@ -571,7 +630,11 @@ VI. PENALITĂȚI
 
 ${data.clauza_penalitate ? `Nerespectarea obligațiilor atrage plata de daune de ${data.clauza_penalitate} RON.` : 'Nerespectarea obligațiilor atrage răspunderea civilă conform legii.'}
 
-VII. DISPOZIȚII FINALE
+VII. LITIGII
+
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
+
+VIII. DISPOZIȚII FINALE
 
 Prezentul acord a fost încheiat în 2 exemplare originale.
 
@@ -631,7 +694,7 @@ Contractul poate înceta prin: acordul ambelor părți, expirarea termenului, sa
 
 VIII. LITIGII
 
-Litigiile se soluționează pe cale amiabilă sau prin instanțele judecătorești competente.
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 IX. DISPOZIȚII FINALE
 
@@ -700,7 +763,7 @@ ${data.comision_tranzactie_directa ? `În cazul tranzacționării directe cu per
 
 VIII. LITIGII
 
-Litigiile se soluționează pe cale amiabilă sau prin instanțele din raza domiciliului clientului.
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 IX. DISPOZIȚII FINALE
 
@@ -719,6 +782,8 @@ Data: ${today}                               Data: ${today}`
   if (contract.id === 'contract-agent-asigurari') {
     return `CONTRACT DE INTERMEDIERE ÎN ASIGURĂRI
 Nr. ${contractNumber} / ${today}
+
+⚠️ CERINȚĂ LEGALĂ: Distribuția de produse de asigurare este reglementată de Legea 237/2015 și Directiva IDD (2016/97/UE). Agentul de asigurări trebuie să fie autorizat/înregistrat la ASF.
 
 I. PĂRȚILE
 
@@ -755,11 +820,17 @@ VI. COMISIONUL
 
 Brokerul percepe comision de la compania de asigurări, nu de la asigurat.
 
-VII. LEGEA APLICABILĂ
+VII. CONFORMITATE REGLEMENTARĂ (Legea 237/2015 — IDD)
 
-Prezentul contract este supus legii române. Litigiile se soluționează de instanțele competente.
+Art. 7.1. Agentul declară că deține autorizație/înregistrare ASF nr. ${data.numar_autorizatie_asf || 'N/A'} și are dreptul legal de a distribui produse de asigurare pe teritoriul României.
+Art. 7.2. Agentul se obligă să respecte cerințele de informare precontractuală prevăzute de IDD, inclusiv furnizarea documentului IPID (Insurance Product Information Document) clienților.
+Art. 7.3. Agentul menține asigurarea de răspundere civilă profesională obligatorie conform cerințelor ASF.
 
-VIII. DISPOZIȚII FINALE
+VIII. LEGEA APLICABILĂ
+
+Prezentul contract este supus legii române. Litigiile se soluționează de instanțele competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
+
+IX. DISPOZIȚII FINALE
 
 Prezentul contract a fost redactat în 2 exemplare.
 
@@ -807,13 +878,15 @@ a) Este proprietarul de drept al bunului;
 b) Bunul nu este gajat, sechestrat sau ipotecat;
 c) Nu există litigii privind bunul.
 
-VI. RĂSPUNDEREA PENTRU VICII
+VI. GARANȚIA CONTRA VICIILOR ASCUNSE (art. 1707 Cod Civil)
 
-Vânzătorul răspunde pentru viciile ascunse conform Codului Civil.
+Art. 6.1. Vânzătorul garantează că bunul vândut este lipsit de vicii ascunse care l-ar face impropriu folosirii sau care îi micșorează atât de mult valoarea sau utilitatea, încât Cumpărătorul nu l-ar fi achiziționat dacă le-ar fi cunoscut.
+Art. 6.2. Termenul de sesizare a viciilor ascunse este de ${data.termen_vicii_ascunse || '2 ani'} de la predarea bunului (art. 2531 Cod Civil), sub sancțiunea decăderii.
+Art. 6.3. Remediile disponibile: reparare, înlocuire, reducerea prețului sau rezoluțiunea contractului, la alegerea Cumpărătorului.
 
 VII. LITIGII
 
-Litigiile se rezolvă pe cale amiabilă sau de instanțele judecătorești competente.
+Litigiile se rezolvă pe cale amiabilă sau de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 VIII. DISPOZIȚII FINALE
 
@@ -886,7 +959,7 @@ ${data.titlu_executoriu?.startsWith('Da') ? `${data.garantie_inventar === 'Da, s
 
 LITIGII
 
-Litigiile se soluționează de instanțele competente de la locul situării imobilului.
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'locul situării imobilului'}, conform normelor de competență în vigoare.
 
 DISPOZIȚII FINALE
 
@@ -952,7 +1025,7 @@ Lucrările și documentele elaborate de consultant în cadrul acestui contract s
 
 IX. LITIGII
 
-Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente.
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 X. DISPOZIȚII FINALE
 
@@ -969,6 +1042,60 @@ Data: ${today}                               Data: ${today}`
 
 
   if (contract.id === 'acord-gdpr') {
+    // If DPA fields are filled, generate full DPA art.28; otherwise generate simple consent agreement
+    if (data.imputernicit_nume) {
+      return `CONTRACT DE PRELUCRARE A DATELOR CU CARACTER PERSONAL
+(Data Processing Agreement — art. 28 RGPD)
+
+Nr. ${data.numar_contract || contractNumber} din data de ${data.data_contract || today}
+
+Încheiat între:
+OPERATOR: ${data.operator_nume}, ${data.operator_tip === 'PFA' ? 'PFA' : 'reprezentată legal prin'} ${data.operator_reprezentant || ''}, CUI/CIF: ${data.operator_cui}, cu sediul în ${data.operator_adresa}, denumit în continuare "Operatorul",
+
+și
+
+PERSOANĂ ÎMPUTERNICITĂ: ${data.imputernicit_nume}, CUI/CIF: ${data.imputernicit_cui}, cu sediul în ${data.imputernicit_adresa}, denumită în continuare "Persoana Împuternicită",
+
+Art. 1 — Obiectul și scopul prelucrării
+1.1. Obiectul prezentului contract îl constituie prelucrarea datelor cu caracter personal de către Persoana Împuternicită în numele Operatorului, în legătură cu: ${data.scopul_prelucrarii || data.scop_prelucrare}.
+1.2. Durata prelucrării: ${data.durata_prelucrarii || data.durata_retentie}.
+1.3. Natura operațiunilor de prelucrare: colectare, stocare, utilizare, transmitere, ștergere.
+1.4. Tipul datelor cu caracter personal prelucrate: ${data.tipul_datelor_prelucrate || data.categorii_date}.
+1.5. Categoriile de persoane vizate: ${data.categorii_persoane_vizate || data.persoana_vizata}.
+
+Art. 2 — Obligațiile Persoanei Împuternicite (art. 28 alin. 3 RGPD)
+2.1. Prelucrează datele cu caracter personal numai pe baza instrucțiunilor documentate ale Operatorului.
+2.2. Se asigură că persoanele autorizate să prelucreze datele s-au angajat să respecte confidențialitatea.
+2.3. Implementează măsuri tehnice și organizatorice adecvate conform art. 32 RGPD: ${data.masuri_securitate || 'SSL/TLS + autentificare 2FA'}.
+2.4. Respectă condițiile pentru angajarea unui alt operator secundar (sub-împuternicit). ${data.subimputerniciti_existenti ? 'Sub-împuterniciți actuali: ' + data.subimputerniciti_existenti : 'Nu sunt angajați sub-împuterniciți fără acordul prealabil scris al Operatorului.'}.
+2.5. Asistă Operatorul, prin măsuri tehnice și organizatorice adecvate, pentru îndeplinirea obligației de răspuns la cererile persoanelor vizate (drepturi RGPD art. 15-22).
+2.6. Asistă Operatorul la respectarea obligațiilor art. 32-36 RGPD (securitate, notificare încălcări, DPIA, consultare prealabilă).
+2.7. La alegerea Operatorului, șterge sau returnează toate datele cu caracter personal după prestarea serviciilor și șterge copiile existente, cu excepția cazului în care legea impune stocarea.
+2.8. Pune la dispoziția Operatorului toate informațiile necesare demonstrării conformității și permite auditurile efectuate de Operator sau de un auditor mandatat.
+
+Art. 3 — Transferuri internaționale
+3.1. Datele cu caracter personal sunt prelucrate pe teritoriul: ${data.tara_transfer_date || 'România / UE'}. Orice transfer în afara SEE necesită acordul prealabil scris al Operatorului și garanții adecvate (art. 46 RGPD).
+
+Art. 4 — Notificarea încălcărilor de securitate
+4.1. Persoana Împuternicită notifică Operatorul fără întârzieri nejustificate și în cel mult 24 de ore după ce ia cunoștință de o încălcare a securității datelor cu caracter personal.
+4.2. Notificarea include: natura încălcării, categoriile și numărul aproximativ de persoane vizate, consecințele probabile, măsurile luate sau propuse.
+
+Art. 5 — Răspundere
+5.1. Persoana Împuternicită răspunde față de Operator pentru prejudiciile cauzate prin nerespectarea prezentului contract sau a RGPD.
+5.2. Amenzile administrative aplicate Operatorului ca urmare a culpei exclusive a Persoanei Împuternicite sunt suportate de aceasta din urmă.
+
+Art. 6 — Dispoziții finale
+6.1. Prezentul contract intră în vigoare la data semnării și este valabil pe durata contractului principal nr. ${data.contract_principal_referinta || 'N/A'}.
+6.2. Prezentul contract completează și face parte integrantă din contractul principal de servicii/colaborare dintre părți.
+6.3. Legea aplicabilă: dreptul român. Litigiile se soluționează de instanțele competente din ${data.localitate_litigii || 'România'}.
+6.4. Redactat în ${data.numar_exemplare || '2'} exemplare originale, câte unul pentru fiecare parte.
+
+OPERATOR,                          PERSOANĂ ÎMPUTERNICITĂ,
+${data.operator_nume}              ${data.imputernicit_nume}
+Semnătură: _______________         Semnătură: _______________
+
+Data: ${today}                     Data: ${today}`
+    }
     return `ACORD DE PRELUCRARE A DATELOR CU CARACTER PERSONAL
 Nr. ${contractNumber} / ${today}
 (în conformitate cu Regulamentul UE 2016/679 — GDPR)
@@ -1010,7 +1137,11 @@ VIII. TRANSMITEREA DATELOR CĂTRE TERȚI
 
 Datele nu vor fi transmise către terți fără consimțământul explicit al persoanei vizate, cu excepția obligațiilor legale.
 
-IX. SEMNĂTURĂ
+IX. LITIGII
+
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
+
+X. SEMNĂTURĂ
 
 OPERATORUL                                   PERSOANA VIZATĂ
 
@@ -1068,9 +1199,22 @@ ${data.echipamente ? `VII. ECHIPAMENTE
 Angajatorul pune la dispoziție:
 ${data.echipamente}` : ''}
 
-VIII. DATA INTRĂRII ÎN VIGOARE
+VIII. TELEMUNCĂ — CLAUZE OBLIGATORII (Legea 81/2018)
+
+Art. 8.1. Locul de desfășurare a telemuncii: ${data.loc_desfasurare_telemunca || data.locatie_telemunca}.
+Art. 8.2. Angajatorul are dreptul de a verifica activitatea salariatului în intervalul: ${data.program_verificare_activitate || data.program_lucru}.
+Art. 8.3. Modalitatea de evidență a orelor lucrate: ${data.modalitate_evidenta_ore || 'Pontaj electronic'}.
+Art. 8.4. Salariatul răspunde de securitatea și sănătatea în muncă la locul de desfășurare a telemuncii, conform instrucțiunilor transmise de angajator.
+Art. 8.5. Angajatorul rambursează salariatului suma de ${data.cheltuieli_intretinere || '0'} RON/lună reprezentând contravaloarea parțială a cheltuielilor de întreținere (electricitate, internet) aferente telemuncii.
+Art. 8.6. Echipamentele de muncă sunt furnizate de: ${data.echipament_furnizat_de || 'Angajator'}. Angajatorul asigură instalarea, verificarea și întreținerea echipamentelor furnizate.
+
+IX. DATA INTRĂRII ÎN VIGOARE
 
 Prezentul act adițional intră în vigoare la data de: ${data.data_incepere}
+
+X. LITIGII
+
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 ANGAJATOR                                    ANGAJAT
 
@@ -1084,6 +1228,9 @@ Data: ${today}                               Data: ${today}`
   if (contract.id === 'antecontract-vanzare') {
     return `ANTECONTRACT DE VÂNZARE-CUMPĂRARE
 Nr. ${contractNumber} / ${today}
+
+⚠️ ATENȚIE: Conform art. 1244 Cod Civil, contractele de vânzare-cumpărare a imobilelor se încheie în formă autentică notarială sub sancțiunea nulității absolute. Prezentul antecontract pentru imobile trebuie notat în Cartea Funciară pentru opozabilitate față de terți (art. 899 Cod Civil).
+Forma autentificării aleasă: ${data.forma_autentificarii || 'Formă autentică notarială (recomandat pentru imobile)'}
 
 I. PROMITENTUL-VÂNZĂTOR
 
@@ -1120,9 +1267,18 @@ VII. CHELTUIELI DE PERFECTARE
 
 Cheltuielile notariale și taxele aferente perfectării vânzării vor fi suportate de Promitentul-cumpărător, dacă nu se va conveni altfel.
 
-VIII. DISPOZIȚII FINALE
+VIII. AVANS / ARVUNĂ
 
-Prezentul antecontract este guvernat de Codul Civil român. Litigiile se soluționează de instanțele competente.
+Art. 8.1. La data semnării prezentului antecontract, Cumpărătorul achită suma de ${data.avans} EUR cu titlu de ${data.avans_natura || 'Arvună confirmatorie (art. 1544 Cod Civil)'}.
+${(data.avans_natura || '').includes('Arvună confirmatorie') ? 'Art. 8.2. În cazul neexecutării contractului din culpa Cumpărătorului, arvuna rămâne Vânzătorului. În cazul neexecutării din culpa Vânzătorului, acesta este obligat să restituie dublul arvunei.' : 'Art. 8.2. Avansul se restituie integral Cumpărătorului în cazul neîncheierii contractului din orice motiv imputabil Vânzătorului.'}
+
+IX. LITIGII
+
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
+
+X. DISPOZIȚII FINALE
+
+Prezentul antecontract este guvernat de Codul Civil român.
 
 PROMITENT-VÂNZĂTOR                           PROMITENT-CUMPĂRĂTOR
 
@@ -1189,11 +1345,15 @@ XI. GARANȚII
 
 Cedentul garantează că este unicul autor al operei, că opera nu încalcă drepturile terților și că nu a mai cedat aceleași drepturi unor terți.
 
-XII. LITIGII
+XII. DURATA PROTECȚIEI DREPTURILOR DE AUTOR
 
-Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente.
+Conform art. 25 Legea 8/1996, drepturile patrimoniale de autor sunt protejate pe durata vieții autorului și timp de 70 de ani de la decesul autorului (nu de la data creării operei).
 
-XIII. DISPOZIȚII FINALE
+XIII. LITIGII
+
+Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
+
+XIV. DISPOZIȚII FINALE
 
 Prezentul contract a fost încheiat în 2 exemplare originale.
 
@@ -1209,6 +1369,8 @@ Data: ${today}                               Data: ${today}`
   if (contract.id === 'contract-mandat') {
     return `CONTRACT DE MANDAT
 Nr. ${contractNumber} / ${today}
+
+⚠️ IMPORTANT LEGAL: Dacă mandatul include acte de dispoziție privind imobile (vânzare, grevare cu sarcini), procura trebuie dată în formă autentică notarială (art. 2013 alin. 2 Cod Civil). Un mandat în formă simplă este nul pentru astfel de acte.
 
 Încheiat între:
 
@@ -1240,7 +1402,7 @@ ${data.remuneratie ? `Mandatarul va primi o remunerație de ${data.remuneratie} 
 Mandantul poate revoca oricând prezentul mandat prin notificare scrisă.
 
 7. LITIGII
-Eventualele litigii vor fi soluționate pe cale amiabilă sau, în caz de eșec, de instanțele judecătorești competente.
+Eventualele litigii vor fi soluționate pe cale amiabilă sau, în caz de eșec, de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 MANDANT                                      MANDATAR
 
@@ -1285,8 +1447,16 @@ Subcontractorul se obligă să păstreze confidențialitatea tuturor informații
 7. PROPRIETATE INTELECTUALĂ
 Toate drepturile de proprietate intelectuală rezultate din prezentul subcontract aparțin Contractorului Principal.
 
-8. RĂSPUNDERE
-Subcontractorul răspunde față de Contractorul Principal pentru orice prejudiciu cauzat prin neîndeplinirea sau îndeplinirea defectuoasă a obligațiilor.
+8. RĂSPUNDERE FAȚĂ DE BENEFICIARUL FINAL
+
+Art. 8.1. Subcontractantul prestează serviciile în beneficiul indirect al ${data.beneficiar_final || 'clientului Contractantului Principal'}, denumit "Beneficiar Final".
+Art. 8.2. Subcontractantul NU are relație contractuală directă cu Beneficiarul Final și NU răspunde direct față de acesta. Toată răspunderea față de Beneficiarul Final revine exclusiv Contractantului Principal.
+Art. 8.3. Subcontractantul nu poate cesiona prezentul contract sau subcontracta prestațiile sale fără acordul prealabil scris al Contractantului Principal.
+Art. 8.4. Subcontractorul răspunde față de Contractorul Principal pentru orice prejudiciu cauzat prin neîndeplinirea sau îndeplinirea defectuoasă a obligațiilor.
+
+9. LITIGII
+
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 CONTRACTOR PRINCIPAL                         SUBCONTRACTOR
 
@@ -1341,8 +1511,16 @@ Acordul poate înceta prin:
 - Finalizarea proiectului/scopului parteneriatului
 - Notificare cu 30 de zile preaviz
 
-10. LITIGII
-Eventualele dispute vor fi rezolvate pe cale amiabilă. În caz de eșec, competența revine instanțelor judecătorești.
+10. DISTRIBUIREA PIERDERILOR
+
+⚠️ ATENȚIE FISCALĂ: Asocierile în participațiune (art. 1949 Cod Civil) sunt tratate fiscal conform art. 125 Cod Fiscal. Recomandăm consultarea unui consultant fiscal înainte de semnare.
+
+Art. 10.1. Pierderile asocierii se distribuie între Parteneri proporțional cu contribuțiile, respectiv: ${data.partener1_nume} suportă ${data.partener1_procent || '50'}%, iar ${data.partener2_nume} suportă ${data.partener2_procent || (100 - parseInt(data.partener1_procent || '50'))}%.
+Art. 10.2. Nicio clauză din prezentul acord nu poate exonera un partener de la contribuția sa la pierderi (art. 1902 alin. 4 Cod Civil — clauza leonină interzisă).
+
+11. LITIGII
+
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 PARTENER 1                                   PARTENER 2
 
@@ -1407,8 +1585,8 @@ Contractul poate fi reziliat:
 11. FORȚĂ MAJORĂ
 Niciuna din părți nu răspunde pentru neexecutarea obligațiilor cauzată de evenimente de forță majoră.
 
-12. LEGISLAȚIE APLICABILĂ
-Prezentul contract este guvernat de legislația română în vigoare.
+12. LEGISLAȚIE APLICABILĂ ȘI LITIGII
+Prezentul contract este guvernat de legislația română în vigoare. Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 PRESTATOR                                    BENEFICIAR
 
@@ -1488,7 +1666,7 @@ Oricare parte poate rezilia contractul cu 30 de zile preaviz scris. Clientul va 
 
 X. LITIGII
 
-Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente.
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 PRESTATOR                                    CLIENT
 
@@ -1563,7 +1741,7 @@ IX. FORȚA MAJORĂ
 
 X. LITIGII
 
-Litigiile se soluționează amiabil sau de instanțele competente.
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 ORGANIZATOR                                  CLIENT
 
@@ -1612,7 +1790,13 @@ Prețul total: ${data.pret} RON
 Avans la semnare: ${data.avans} RON (nererambursabil în caz de anulare cu mai puțin de 48 ore)
 Rest: ${parseInt(data.pret || '0') - parseInt(data.avans || '0')} RON — plătibil la/înainte de sesiune
 
-VI. PROPRIETATEA INTELECTUALĂ ȘI DREPTURI DE PUBLICARE
+VI. CESIUNEA DREPTURILOR DE AUTOR (Legea 8/1996)
+
+Art. 6.1. Fotograful cedează Beneficiarului, cu titlu ${data.tip_cesiune_foto === 'Exclusivă' ? 'exclusiv' : 'neexclusiv'}, drepturile patrimoniale de autor asupra fotografiilor livrate, pentru modalitățile de utilizare: ${data.modalitati_utilizare_foto || 'reproducere, distribuire, comunicare publică, afișare'}.
+Art. 6.2. Cesiunea este valabilă pe teritoriul: ${data.teritoriu_cesiune_foto || 'România'}, pentru o durată de: ${data.durata_cesiune_foto || '3 ani'}, calculată de la data livrării.
+Art. 6.3. ${data.drept_atribuire === 'Cu menționarea numelui fotografului' ? 'Beneficiarul se obligă să menționeze numele fotografului (drept moral de atribuire, art. 10 lit. b Legea 8/1996) la orice utilizare publică.' : 'Fotograful renunță expres la dreptul de atribuire (drept moral) pentru utilizările comerciale ale prezentului contract.'}
+Art. 6.4. Drepturile morale ale fotografului (integritate, divulgare) nu fac obiectul cesiunii și rămân inalienabile.
+Art. 6.5. Prezenta cesiune devine efectivă la achitarea integrală a prețului convenit.
 
 Clientul primește dreptul de utilizare personală și comercială a fotografiilor livrate.
 Fotograful poate utiliza imaginile în scop de portofoliu: ${data.drepturi_publicare}
@@ -1635,7 +1819,7 @@ Fotograful livrează imagini editate profesional conform stilului agreat. Nu se 
 
 X. LITIGII
 
-Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente.
+Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 FOTOGRAF                                     CLIENT
 
@@ -1712,7 +1896,7 @@ Traducerea realizată devine proprietatea clientului după achitarea integrală 
 
 XI. LITIGII
 
-Litigiile se soluționează pe cale amiabilă sau de instanțele judecătorești competente din România.
+Litigiile se soluționează de instanțele judecătorești competente din ${data.localitate_litigii || 'România'}, conform normelor de competență în vigoare.
 
 XII. DISPOZIȚII FINALE
 
