@@ -308,7 +308,17 @@ export default function GeneratePage() {
         {step === 'form' && (
           <>
             <div className="mb-6">
-              <h1 className="text-2xl font-bold text-gray-900">{contract.name}</h1>
+              <div className="flex items-center gap-3 flex-wrap">
+                <h1 className="text-2xl font-bold text-gray-900">{contract.name}</h1>
+                {localStorage.getItem(`contract-draft-${contract?.id}`) && (
+                  <button
+                    onClick={() => { localStorage.removeItem(`contract-draft-${contract!.id}`); window.location.reload() }}
+                    className="text-xs text-gray-400 hover:text-gray-600"
+                  >
+                    Șterge draft salvat
+                  </button>
+                )}
+              </div>
               <p className="text-gray-500 mt-1 text-sm">{contract.description}</p>
             </div>
             <form onSubmit={handleFormSubmit} className="space-y-4">
@@ -360,7 +370,7 @@ export default function GeneratePage() {
         {step === 'email' && (
           <>
             <div className="mb-6">
-              <h1 className="text-2xl font-bold text-gray-900">Unde trimitem contractul?</h1>
+              <h2 className="text-2xl font-bold text-gray-900">Unde trimitem contractul?</h2>
               <p className="text-gray-500 mt-1 text-sm">Primesti contractul complet pe email dupa plata</p>
             </div>
             <form onSubmit={handleEmailSubmit} className="space-y-4">
@@ -393,7 +403,7 @@ export default function GeneratePage() {
         {step === 'preview' && (
           <>
             <div className="mb-4">
-              <h1 className="text-2xl font-bold text-gray-900">Previzualizare contract</h1>
+              <h2 className="text-2xl font-bold text-gray-900">Previzualizare contract</h2>
               <p className="text-gray-500 mt-1 text-sm">Primele 3 clauze sunt vizibile. Dupa plata primesti contractul complet.</p>
             </div>
 
@@ -482,11 +492,13 @@ export default function GeneratePage() {
         {/* STEP 4: Done */}
         {step === 'done' && (
           <>
+            {/* Curăță localStorage la done */}
+            {typeof window !== 'undefined' && contract && localStorage.removeItem(`contract-draft-${contract.id}`)}
             <div className="text-center py-8">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-3xl">✓</span>
               </div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-2">Contract generat!</h1>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Contract generat!</h2>
               <p className="text-gray-500 mb-1">Nr. {contractNumber}</p>
               <p className="text-gray-600">L-am trimis la <strong>{email}</strong></p>
             </div>
