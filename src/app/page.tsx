@@ -357,6 +357,7 @@ export default function Home() {
             <a href="/faq" className="hover:text-gray-600">FAQ</a>
             <a href="/termeni" className="hover:text-gray-600">Termeni</a>
             <a href="/confidentialitate" className="hover:text-gray-600">Confidentialitate</a>
+            <a href="/politica-cookies" className="hover:text-gray-600">Politica Cookies</a>
             <a href="mailto:contact@contracterapide.ro" className="hover:text-gray-600">Contact</a>
           </div>
         </div>
