@@ -1,9 +1,17 @@
 import { MetadataRoute } from 'next'
 import { BLOG_POSTS } from '@/lib/blog-posts'
+import { CONTRACT_TYPES } from '@/lib/contracts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://contracterapide.ro'
   const lastModified = new Date()
+
+  const contractUrls: MetadataRoute.Sitemap = CONTRACT_TYPES.map(c => ({
+    url: `${baseUrl}/contracte/${c.id}`,
+    lastModified,
+    changeFrequency: 'monthly' as const,
+    priority: 0.9,
+  }))
 
   const blogUrls: MetadataRoute.Sitemap = BLOG_POSTS.map(post => ({
     url: `${baseUrl}/blog/${post.slug}`,
@@ -73,6 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    ...contractUrls,
     ...blogUrls,
   ]
 }

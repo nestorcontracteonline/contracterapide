@@ -9,14 +9,27 @@ function SuccesContent() {
   const searchParams = useSearchParams()
   const sessionId = searchParams.get('session_id')
   const [status, setStatus] = useState<'loading' | 'ok' | 'error'>('loading')
+  const [contractName, setContractName] = useState('')
+  const [customerEmail, setCustomerEmail] = useState('')
 
   useEffect(() => {
-    if (sessionId) {
-      // Sesiunea există => plata a reușit (Stripe redirecționează doar după succes)
-      setStatus('ok')
-    } else {
+    if (!sessionId) {
       setStatus('error')
+      return
     }
+
+    fetch(`/api/stripe/verify-session?session_id=${sessionId}`)
+      .then(r => r.json())
+      .then(data => {
+        if (data.valid) {
+          setStatus('ok')
+          setContractName(data.contractName || '')
+          setCustomerEmail(data.email || '')
+        } else {
+          setStatus('error')
+        }
+      })
+      .catch(() => setStatus('error'))
   }, [sessionId])
 
   if (status === 'loading') {
@@ -52,7 +65,9 @@ function SuccesContent() {
         </div>
         
         <h1 className="text-3xl font-bold text-gray-900 mb-3">Plată confirmată!</h1>
+        {contractName && <p className="text-blue-600 font-medium mb-2">{contractName}</p>}
         <p className="text-gray-600 mb-2">Contractul tău a fost generat și trimis pe email.</p>
+        {customerEmail && <p className="text-sm text-gray-400 mb-2">Trimis la: {customerEmail}</p>}
         <p className="text-sm text-gray-400 mb-8">Verifică și folderul Spam dacă nu găsești emailul în câteva minute.</p>
 
         <div className="bg-blue-50 border border-blue-100 rounded-xl p-5 mb-8 text-left">

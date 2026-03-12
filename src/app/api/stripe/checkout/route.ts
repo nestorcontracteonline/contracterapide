@@ -38,9 +38,27 @@ export async function POST(req: NextRequest) {
       console.error('DB error:', dbError)
     }
 
+    // FIX GDPR: Salvează formData în pending_contracts (nu în metadata Stripe)
+    let pendingId: string | null = null
+    try {
+      const { data: pending } = await supabaseAdmin
+        .from('pending_contracts')
+        .insert({
+          contract_id: contractId,
+          form_data: formData,
+          customer_email: email,
+          customer_name: name,
+        })
+        .select('id')
+        .single()
+      pendingId = pending?.id || null
+    } catch (pendingError) {
+      console.error('Pending contracts DB error:', pendingError)
+    }
+
     const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://contracterapide.ro'
 
-    // Creăm sesiunea Stripe Checkout
+    // Creăm sesiunea Stripe Checkout — fără date personale în metadata
     const stripe = getStripe()
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -62,12 +80,12 @@ export async function POST(req: NextRequest) {
       success_url: `${appUrl}/succes?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${appUrl}/genereaza/${contractId}`,
       metadata: {
-        contractId,
+        // FIX GDPR: doar ID-uri, fără date personale
+        pending_id: pendingId || '',
+        contract_id: contractId,
+        contract_name: contract.name,
         contractNumber,
         contractDbId: contractDbId || '',
-        customerName: name,
-        customerEmail: email,
-        formData: JSON.stringify(formData),
       },
       locale: 'ro',
     })

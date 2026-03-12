@@ -13,7 +13,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: 'contract-prestari-servicii-pfa',
     title: 'Model Contract Prestări Servicii PFA 2025 – Descarcă Gratuit sau Generează Online',
     excerpt: 'Cauți un model de contract prestări servicii PFA valabil în 2025? Află ce clauze sunt obligatorii, cum te protejezi juridic și cum poți genera un contract completat instant online.',
-    publishedAt: '2025-03-01',
+    publishedAt: '2026-03-11',
     readingTime: 4,
     keywords: ['contract prestari servicii pfa', 'model contract pfa', 'contract prestari servicii 2025'],
     content: `## De ce ai nevoie de un contract de prestări servicii ca PFA
@@ -87,7 +87,7 @@ Un **contract prestări servicii PFA** bine redactat îți protejează munca, as
     slug: 'acord-confidentialitate-freelancer',
     title: 'Acord de Confidențialitate (NDA) pentru Freelanceri – Model Complet 2025',
     excerpt: 'Modelul complet de acord de confidențialitate (NDA) pentru freelanceri în 2025. Ce trebuie să conțină, când îl ceri clientului și cum îl generezi online în câteva minute.',
-    publishedAt: '2025-03-05',
+    publishedAt: '2026-03-11',
     readingTime: 4,
     keywords: ['acord confidentialitate freelancer', 'nda freelancer', 'acord confidentialitate 2025'],
     content: `## Ce este un acord de confidențialitate (NDA) și de ce contează pentru freelanceri
@@ -154,7 +154,7 @@ Pe **ContracteRapide.ro** poți genera în câteva minute un acord de confidenț
     slug: 'contract-colaborare-it',
     title: 'Contract Colaborare IT 2025 – Cum te Protejezi ca Developer Freelancer',
     excerpt: 'Ești developer freelancer sau lucrezi cu subcontractori IT? Află ce trebuie să conțină un contract de colaborare IT în 2025 și cum te protejezi juridic și financiar.',
-    publishedAt: '2025-03-10',
+    publishedAt: '2026-03-11',
     readingTime: 4,
     keywords: ['contract colaborare it freelancer', 'contract colaborare developer', 'contract it 2025'],
     content: `## De ce un contract de colaborare IT e diferit față de un contract standard
@@ -222,7 +222,7 @@ Pe **ContracteRapide.ro** avem un template de contract colaborare IT adaptat spe
     slug: 'pfa-fara-contract-riscuri',
     title: 'Ce Riscuri ai ca PFA fără Contract? 5 Situații Reale',
     excerpt: 'Activezi ca PFA și lucrezi fără contract? Iată 5 situații reale în care lipsa unui contract te poate costa bani, nervi și timp prețios.',
-    publishedAt: '2025-03-15',
+    publishedAt: '2026-03-11',
     readingTime: 5,
     keywords: ['pfa fara contract', 'riscuri pfa fara contract', 'contract pfa obligatoriu'],
     content: `## "Merge și fără contract" — cea mai scumpă greșeală a freelancerilor

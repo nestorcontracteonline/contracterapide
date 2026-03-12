@@ -34,23 +34,46 @@ export async function POST(req: NextRequest) {
     const session = event.data.object as Stripe.Checkout.Session
     const meta = session.metadata!
 
-    const contractId = meta.contractId
-    const contractNumber = meta.contractNumber
-    const contractDbId = meta.contractDbId
-    const customerName = meta.customerName
-    const customerEmail = meta.customerEmail
-    const formData = JSON.parse(meta.formData || '{}')
-
-    const contract = getContractById(contractId)
-    if (!contract) {
-      console.error('Contract type not found:', contractId)
-      return NextResponse.json({ ok: true })
-    }
-
-    const contractText = generateContractText(contract, formData)
-
-    // Actualizăm statusul în Supabase
     try {
+      // FIX GDPR: citește formData din pending_contracts, nu din metadata Stripe
+      const pendingId = meta.pending_id
+      let formData: Record<string, unknown> = {}
+      let customerEmail = session.customer_details?.email || ''
+      let customerName = ''
+
+      if (pendingId) {
+        const { data: pending } = await supabaseAdmin
+          .from('pending_contracts')
+          .select('*')
+          .eq('id', pendingId)
+          .single()
+
+        if (pending) {
+          formData = pending.form_data || {}
+          customerEmail = pending.customer_email || customerEmail
+          customerName = pending.customer_name || ''
+
+          // Marchează ca folosit
+          await supabaseAdmin
+            .from('pending_contracts')
+            .update({ used_at: new Date().toISOString() })
+            .eq('id', pendingId)
+        }
+      }
+
+      const contractId = meta.contract_id
+      const contractNumber = meta.contractNumber
+      const contractDbId = meta.contractDbId
+
+      const contract = getContractById(contractId)
+      if (!contract) {
+        console.error('Contract type not found:', contractId)
+        return NextResponse.json({ ok: true })
+      }
+
+      const contractText = generateContractText(contract, formData)
+
+      // Actualizăm statusul în Supabase
       if (contractDbId) {
         await supabaseAdmin.from('contracts').update({
           status: 'paid',
@@ -59,12 +82,8 @@ export async function POST(req: NextRequest) {
           contract_text: contractText,
         }).eq('id', contractDbId)
       }
-    } catch (dbErr) {
-      console.error('DB update error:', dbErr)
-    }
 
-    // Trimitem contractul pe email
-    try {
+      // Trimitem contractul pe email
       const resend = getResend()
       await resend.emails.send({
         from: 'ContracteRapide <noreply@contracterapide.ro>',
@@ -179,11 +198,13 @@ export async function POST(req: NextRequest) {
 </html>
         `,
       })
-    } catch (emailErr) {
-      console.error('Email error:', emailErr)
-    }
 
-    console.log(`✅ Contract ${contractNumber} plătit și trimis la ${customerEmail}`)
+      console.log(`✅ Contract procesat: ${contractNumber}`)
+    } catch (processingError) {
+      console.error('❌ Eroare procesare webhook:', processingError)
+      // Return 500 → Stripe va retrimite webhookul
+      return NextResponse.json({ error: 'Processing failed' }, { status: 500 })
+    }
   }
 
   return NextResponse.json({ received: true })

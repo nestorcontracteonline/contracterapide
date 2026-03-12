@@ -28,6 +28,30 @@ export default function GeneratePage() {
     setFormData(init)
   }, [params.id, router])
 
+  // Restaurează din localStorage
+  useEffect(() => {
+    if (!contract) return
+    const saved = localStorage.getItem(`contract-draft-${contract.id}`)
+    if (saved) {
+      try {
+        const { formData: savedData, email: savedEmail, step: savedStep } = JSON.parse(saved)
+        if (savedData) setFormData(prev => ({ ...prev, ...savedData }))
+        if (savedEmail) setEmail(savedEmail)
+        if (savedStep && savedStep !== 'payment' && savedStep !== 'done') {
+          setStep(savedStep)
+        }
+      } catch {}
+    }
+  }, [contract])
+
+  // Salvează în localStorage la orice modificare
+  useEffect(() => {
+    if (!contract || step === 'done') return
+    localStorage.setItem(`contract-draft-${contract.id}`, JSON.stringify({
+      formData, email, customerName, step
+    }))
+  }, [formData, email, customerName, step, contract])
+
   if (!contract) return (
     <div className="min-h-screen flex items-center justify-center text-gray-500">Se incarca...</div>
   )
