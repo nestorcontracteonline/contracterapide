@@ -35,7 +35,7 @@ export default function GeneratePage() {
     if (saved) {
       try {
         const { formData: savedData, email: savedEmail, step: savedStep } = JSON.parse(saved)
-        if (savedData) setFormData(prev => ({ ...prev, ...savedData }))
+        if (savedData) setFormData(prev => ({ ...prev, ...(savedData as Record<string, string>) }))
         if (savedEmail) setEmail(savedEmail)
         if (savedStep && savedStep !== 'payment' && savedStep !== 'done') {
           setStep(savedStep)
