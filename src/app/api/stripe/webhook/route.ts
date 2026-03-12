@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
     try {
       // FIX GDPR: citește formData din pending_contracts, nu din metadata Stripe
       const pendingId = meta.pending_id
-      let formData: Record<string, unknown> = {}
+      let formData: Record<string, string> = {}
       let customerEmail = session.customer_details?.email || ''
       let customerName = ''
 
